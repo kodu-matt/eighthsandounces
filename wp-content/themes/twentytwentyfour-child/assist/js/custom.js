@@ -30,79 +30,11 @@ jQuery(document).ready(function($) {
         }
     }
 });
-jQuery(function($){
-  // possible target selectors (tries multiple common ones)
-  var $wrapper = $('.notice-wrapper, .woocommerce-notices-wrapper, .woocommerce-message-wrapper').first();
 
-  // if none found, attempt to create a wrapper near main content as fallback
-  if (!$wrapper.length) {
-    var $target = $('main, .entry-content, .page, .content').first();
-    if ($target.length) {
-      $wrapper = $('<div class="woocommerce-notices-wrapper"></div>').prependTo($target);
-      // console.info('Created fallback .woocommerce-notices-wrapper'); // Removed logging
-    } else {
-      // console.warn('No existing wrapper found and no fallback target. Exiting.'); // Removed logging
-      return;
-    }
-  }
 
-  // core routine: keep one message, move it into wrapper, remove others
-  function dedupeAndMove(){
-    var $msgs = $('.woocommerce-message-custom');
-    if (!$msgs.length) {
-      // nothing to do
-      return;
-    }
 
-    // prefer a message already marked as moved, otherwise pick the first
-    var $msg = $msgs.filter('[data-moved="1"]').first();
-    if (!$msg.length) $msg = $msgs.first();
 
-    // mark it so we don't accidentally remove the one we want later
-    $msg.attr('data-moved','1');
 
-    // move the chosen message into wrapper (prepend so it shows at top)
-    if (!$wrapper.is($msg.parent())) {
-      $wrapper.prepend($msg);
-      // console.info('Moved message into wrapper'); // Removed logging
-    }
-
-    // remove any other duplicates from page and inside wrapper
-    $msgs.not($msg).remove();
-    $wrapper.find('.woocommerce-message-custom').not($msg).remove();
-  }
-
-  // run once after small delay (some themes render messages slightly after DOM ready)
-  setTimeout(dedupeAndMove, 120);
-
-  // also run on common WooCommerce events + generic ajax complete
-  $(document).ajaxComplete(function(){ setTimeout(dedupeAndMove, 60); });
-  $(document.body).on('wc_fragments_refreshed updated_checkout updated_wc_div', function(){ setTimeout(dedupeAndMove, 60); });
-
-  // MutationObserver to catch messages inserted dynamically
-  var observer = new MutationObserver(function(muts){
-    var found = false;
-    for (var m of muts) {
-      for (var n of m.addedNodes) {
-        if (!(n instanceof HTMLElement)) continue;
-        if (n.matches('.woocommerce-message-custom') || (n.querySelector && n.querySelector('.woocommerce-message-custom'))) {
-          found = true;
-          break;
-        }
-      }
-      if (found) break;
-    }
-    if (found) {
-      // small debounce
-      clearTimeout(window.__moveMsgTO);
-      window.__moveMsgTO = setTimeout(dedupeAndMove, 40);
-    }
-  });
-  observer.observe(document.body, { childList: true, subtree: true });
-
-  // optional: disconnect observer after X seconds to save resources
-  setTimeout(function(){ observer.disconnect(); }, 2 * 60 * 1000);
-});
 
 document.addEventListener('DOMContentLoaded', function() {
    
@@ -252,7 +184,6 @@ jQuery(document).ready(function($) {
         $('.products-container' + currentAttrValue).css('display', 'flex').siblings('.tab-content').hide();
         $(this).parent('li').addClass('active').siblings().removeClass('active');
     });
-    // Set first tab as active and show its content
     $('.tab-links li:first-child').addClass('active');
     $('#latest').css('display', 'flex').siblings('.tab-content').hide();
     $('.bru-coulmn').matchHeight();
@@ -285,12 +216,31 @@ jQuery(document).ready(function($) {
     matchHeightEle( $('.shop-blog-title') );
     matchHeightEle( $('.green-dec-height') );
 	matchHeightEle( $('.product-card h3') );
-	matchHeightEle( $('.blog-title') );
+	matchHeightEle( $('.blog_title') );
 	matchHeightEle( $('.recent-container h2') );
 	matchHeightEle( $('.cat-post-title') );
+	matchHeightEle( $('.term-cannabis-edibles .taxonomy-product_cat') );
+	matchHeightEle( $('.term-cannabis-cartridges .taxonomy-product_cat') );
     $('.rating-wrap').matchHeight();
     $('.cat-match-height').matchHeight();
+
+    if( $('.pum').length > 0 ){
+        $('.pum').each(function(){
+            let text = $(this).find('h2:eq(0)').text();
+            $(this).attr('aria-modal', "true");
+            $(this).attr('aria-label', text);
+        });
+    }
+
+    if( $('.wc-block-components-drawer__screen-overlay').length > 0 ){
+        $('.wc-block-components-drawer__screen-overlay').attr('aria-hidden', "true");
+    }
+
+    if($('.wp-block-search__button').length > 0 ){
+        $('.wp-block-search__button').attr('aria-label', 'Search');
+    }
 });
+
 function matchHeightEle(ele){
     var maxHeight = 0;
     ele.each(function() {
@@ -387,14 +337,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 const ctx = chart.ctx;
                 ctx.restore();
                 
-                ctx.font = "20px sans-serif"; // Customize font via CSS
+                ctx.font = "20px sans-serif"; 
                 ctx.textBaseline = "middle";
                 const text = percent + "%";
                 const textX = Math.round((width - ctx.measureText(text).width) / 2);
                 const textY = height / 2 - 10;
                 ctx.fillText(text, textX, textY);
 
-                ctx.font = "18px sans-serif"; // Customize font via CSS
+                ctx.font = "18px sans-serif"; 
                 const subTextX = Math.round((width - ctx.measureText(subText).width) / 2);
                 const subTextY = height / 2 + 22 / 2;
                 ctx.fillText(subText, subTextX, subTextY + 26 / 2);
@@ -428,7 +378,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-	// THC Chart
 	const thcSection = document.querySelector('.progress-bar-section[data-thc-progress-bar]');
 	if (thcSection) {
 		const thcPercent = parseInt(thcSection.getAttribute('data-thc-progress-bar'), 10) || 0;
@@ -441,12 +390,11 @@ document.addEventListener('DOMContentLoaded', function() {
 		} else if (thcPercent <= 30) {
 			thcLabel = 'High';
 		} else {
-			thcLabel = 'Unknown'; // Fallback for invalid percentages
+			thcLabel = 'Unknown'; 
 		}
 
 		updateChart('thcChart', thcPercent, thcLabel);
 	}
-    // CBD Chart
     const cbdSection = document.querySelector('.progress-bar-section[data-cbd-progress-bar]');
     if (cbdSection) {
         const cbdPercent = parseInt(cbdSection.getAttribute('data-cbd-progress-bar'), 10) || 0;
@@ -484,20 +432,16 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     var shippingMethods = document.querySelectorAll('#shipping-method li');
 
-    // Add click event listeners to each shipping method item
     shippingMethods.forEach(function(item) {
         item.addEventListener('click', function() {
             var shippingMethod = this.getAttribute('data-method');
 
             if (this.classList.contains('selected')) {
-                // If the clicked item is already selected, remove the class and clear session storage
                 this.classList.remove('selected');
                 sessionStorage.removeItem('selected_shipping_method');
             } else {
-                // If the clicked item is not selected, add the class and save to session storage
                 sessionStorage.setItem('selected_shipping_method', shippingMethod);
 
-                // Highlight the selected method and remove the class from others
                 shippingMethods.forEach(function(el) {
                     el.classList.remove('selected');
                 });
@@ -506,7 +450,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Set the initial state based on session storage
     var selectedMethod = sessionStorage.getItem('selected_shipping_method');
     if (selectedMethod) {
         shippingMethods.forEach(function(item) {
@@ -533,22 +476,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 document.addEventListener("DOMContentLoaded", function() {
-    // Create the toggle button
     var toggleButton = document.createElement("button");
     toggleButton.id = "toggle-search";
     toggleButton.innerText = "Find Location Near Me";
     
-    // Insert the button before the search field container
-    var searchFieldContainer = document.querySelector("#wpsl-search-wrap"); // Replace with the actual class or ID
+    var searchFieldContainer = document.querySelector("#wpsl-search-wrap"); 
     if (searchFieldContainer) {
         searchFieldContainer.parentNode.insertBefore(toggleButton, searchFieldContainer);
 
-        // Hide the search field container by default on mobile
         if (window.innerWidth <= 768) {
             searchFieldContainer.style.display = "none";
         }
 
-        // Add click event listener to the button
         toggleButton.addEventListener("click", function() {
             if (window.innerWidth <= 768) { // Adjust width as needed for your definition of mobile
                 if (searchFieldContainer.style.display === "none" || searchFieldContainer.style.display === "") {
@@ -612,7 +551,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Activate the first tab and its content by default
     if (tabs.length > 0) {
         tabs[0].classList.add('active');
         document.getElementById('tab-content-0').classList.add('active');
@@ -632,7 +570,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
 
-                // Change button text based on visibility
                 if (button.textContent === 'See More') {
                     button.textContent = 'See Less';
                 } else {
@@ -641,7 +578,6 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     }
-    // Initialize toggle for each section
     setupSeeMore('side-effects-section', 'side-effects-more');
     setupSeeMore('may-relive-section', 'may-relive-more');
     setupSeeMore('flavors-section', 'flavors-more');
@@ -674,7 +610,7 @@ jQuery(document).ready(function($) {
 
         var value = select.find("option:selected").val();
         $(".list-product li[data-value='" + value + "']").addClass("checked");
-
+		
         select.parent().on("click", ".list-product li", function() {
             var selectedValue,
                 currentlyChecked = $(this).hasClass("checked");
@@ -707,10 +643,8 @@ jQuery(document).ready(function($) {
     var $cart_button = $('.button-form .express-checkout-button');
 
     if ($cart_button.length > 0) {
-        // Disable the button initially
         $cart_button.addClass('disabled');
 
-        // Handle variable product scenarios
         $('form.variations_form').on('woocommerce_variation_select_change', function() {
             $cart_button.addClass('disabled');
         });
@@ -723,12 +657,9 @@ jQuery(document).ready(function($) {
             $cart_button.addClass('disabled');
         });
 
-        // Simple product logic
         if (!$('form.variations_form').length) {
-            // Check if it is a simple product
             $cart_button.removeClass('disabled');
 
-            // Ensure the button works without variations
             $cart_button.on('click', function(e) {
                 e.preventDefault();
                 // Directly submit the form
@@ -746,156 +677,169 @@ jQuery(document).ready(function($) {
 });
 
 jQuery(document).ready(function ($) {
-	$('ul.filtered-items').hide()
-	$(document).on('click', '.remove_filter', function (e) {
-		e.preventDefault();
+    $('ul.filtered-items').hide();
 
-		var id = $(this).data('id');
-		var name = $(this).data('name');
+    $(document).on('click', '.remove_filter', function (e) {
+        e.preventDefault();
 
-		$('input[value="' + id + '"]').prop('checked', false);
-		
-		$('#apply-filters').trigger('click');
-	});
+        var id = $(this).data('id');
+        var name = $(this).data('name'); 
+        $('input[name="' + name + '[]"][value="' + id + '"]').prop('checked', false);
+        
+        $('#apply-filters').trigger('click');
+    });
 
-	$(document).on('click', '.clear_all_filter', function (e) {
-		e.preventDefault();
+    $(document).on('click', '.clear_all_filter', function (e) {
+        e.preventDefault();
 
-		// Clear all select elements in the filter section
-		$(this).closest('.product-filter').find('input[type="checkbox"]').each(function () {
-			$(this).prop('checked', true);
-		});
+        $(this).closest('.product-filter').find('input[type="checkbox"]').prop('checked', false);
 
-		// Uncheck all checkboxes in the filter section
-		$(this).closest('.product-filter').find('input[type="checkbox"]').prop('checked', false);
+        $('#apply-filters').trigger('click');
+    });
 
-		// Trigger the filter application
-		$('#apply-filters').trigger('click');
-	});
-
-	$( document ).on('change', '.product-filter input[type="checkbox"]', function(){
-		$( this ).closest(' .product-filter ').find( '#apply-filters' ).trigger('click');
-	});
-	
+    $(document).on('change', '.product-filter input[type="checkbox"]', function () {
+        $(this).closest('.product-filter').find('#apply-filters').trigger('click');
+    });
+    
     $('#apply-filters').on('click', function (e) {
         e.preventDefault();
+            
+        var cat_name = $('input[name="cat_name[]"]:checked').map(function () {
+            return this.value;
+        }).get();
+
+        var cat_type = $('input[name="cat_type[]"]:checked').map(function () {
+            return this.value;
+        }).get();
+
+        var typical_effects = $('input[name="typical_effects[]"]:checked').map(function () {
+            return this.value;
+        }).get();
+
+        var common_usage = $('input[name="common_usage[]"]:checked').map(function () {
+            return this.value;
+        }).get();
         
-		// Collecting values of checked checkboxes
-		var cat_name = $('input[name="cat_name[]"]:checked').map(function () {
-			return this.value;
-		}).get();
+        var thc = $('input[name="thc[]"]:checked').map(function () {
+            return this.value;
+        }).get();
 
-		var cat_type = $('input[name="cat_type[]"]:checked').map(function () {
-			return this.value;
-		}).get();
+        var selectedFiltersHtml = '';
 
-		var typical_effects = $('input[name="typical_effects[]"]:checked').map(function () {
-			return this.value;
-		}).get();
+        if (cat_name.length > 0) {
+            cat_name.forEach(function (nameId) {
+                var labelText = $('input[name="cat_name[]"][value="' + nameId + '"]').parent('label').text().trim();
+                selectedFiltersHtml += '<li class="item">';
+                selectedFiltersHtml += '<span class="filter-label">Product type: </span>';
+                selectedFiltersHtml += '<span class="filter-value">' + labelText + '</span>';
+                selectedFiltersHtml += '<button class="action remove_filter" data-id="' + nameId + '" data-name="cat_name" title="Remove Product type ' + labelText + '"><span>x</span></button>';
+                selectedFiltersHtml += '</li>';
+            });
+        }
 
-		var common_usage = $('input[name="common_usage[]"]:checked').map(function () {
-			return this.value;
-		}).get();
-		
-		var thc = $('input[name="thc[]"]:checked').map(function () {
-			return this.value;
-		}).get();
+        if (cat_type.length > 0) {
+            cat_type.forEach(function (typeValue) { 
+                var labelText = $('input[name="cat_type[]"][value="' + typeValue + '"]').parent('label').text().trim();
+                selectedFiltersHtml += '<li class="item">';
+                selectedFiltersHtml += '<span class="filter-label">Strain Type: </span>';
+                selectedFiltersHtml += '<span class="filter-value">' + labelText + '</span>';
+                selectedFiltersHtml += '<button class="action remove_filter" data-id="' + typeValue + '" data-name="cat_type" title="Remove Strain Type ' + labelText + '"><span>x</span></button>';
+                selectedFiltersHtml += '</li>';
+            });
+        }
+        if (typical_effects.length > 0) {
+            typical_effects.forEach(function (effectId) {
+                var labelText = $('input[name="typical_effects[]"][value="' + effectId + '"]').parent('label').text().trim();
+                selectedFiltersHtml += '<li class="item">';
+                selectedFiltersHtml += '<span class="filter-label">By Effect: </span>';
+                selectedFiltersHtml += '<span class="filter-value">' + labelText + '</span>';
+                selectedFiltersHtml += '<button class="action remove_filter" data-id="' + effectId + '" data-name="typical_effects" title="Remove By Effect ' + labelText + '"><span>x</span></button>';
+                selectedFiltersHtml += '</li>';
+            });
+        }
 
-		var html = '';
+        if (common_usage.length > 0) {
+            common_usage.forEach(function (usageId) {
+                var labelText = $('input[name="common_usage[]"][value="' + usageId + '"]').parent('label').text().trim();
+                selectedFiltersHtml += '<li class="item">';
+                selectedFiltersHtml += '<span class="filter-label">Common Usage: </span>';
+                selectedFiltersHtml += '<span class="filter-value">' + labelText + '</span>';
+                selectedFiltersHtml += '<button class="action remove_filter" data-id="' + usageId + '" data-name="common_usage" title="Remove Common Usage ' + labelText + '"><span>x</span></button>';
+                selectedFiltersHtml += '</li>';
+            });
+        }
+        
+        if (thc.length > 0) {
+            thc.forEach(function (thcValue) { 
+                var labelText = $('input[name="thc[]"][value="' + thcValue + '"]').parent('label').text().trim();
+                selectedFiltersHtml += '<li class="item">';
+                selectedFiltersHtml += '<span class="filter-label">Psychoactive Level: </span>';
+                selectedFiltersHtml += '<span class="filter-value">' + labelText + '</span>';
+                selectedFiltersHtml += '<button class="action remove_filter" data-id="' + thcValue + '" data-name="thc" title="Remove Psychoactive Level ' + labelText + '"><span>x</span></button>';
+                selectedFiltersHtml += '</li>';
+            });
+        }
 
-		// Display selected filters dynamically
-		if (cat_name.length > 0) {
-			cat_name.forEach(function (name) {
-				
-				var title = $('label[for="' + name + '"]').text() || name; // Assuming labels have the `for` attribute matching checkbox IDs
-				html += '<li class="item">';
-				html += '<span class="filter-label">Category: </span>';
-				html += '<span class="filter-value">' + $('input[value="'+ name +'"]').parent('label').attr('for') + '</span>';
-				html += '<button class="action remove_filter" data-id="' + name + '" data-name="cat_name" title="Remove Category ' + title + '"><span>x</span></button>';
-				html += '</li>';
-			});
-		}
+        if (selectedFiltersHtml !== '') {
+            selectedFiltersHtml += '<button class="clear_all_filter" name="clear_filter" title="Clear All">Clear All</button>';
+            $('ul.filtered-items').html(selectedFiltersHtml).show();
+        } else {
+            $('ul.filtered-items').html('').hide();
+        }
 
-		if (cat_type.length > 0) {
-			cat_type.forEach(function (type) {
-				var title = $('label[for="' + type + '"]').text() || type;
-				html += '<li class="item">';
-				html += '<span class="filter-label">Category Type: </span>';
-				html += '<span class="filter-value">' + $('input[value="'+ type +'"]').parent('label').attr('for') + '</span>';
-				html += '<button class="action remove_filter" data-id="' + type + '" data-name="cat_type" title="Remove Category Type ' + title + '"><span>x</span></button>';
-				html += '</li>';
-			});
-		}
-
-		if (typical_effects.length > 0) {
-			typical_effects.forEach(function (effect) {
-				var title = $('label[for="' + effect + '"]').text() || effect;
-				html += '<li class="item">';
-				html += '<span class="filter-label">Typical Effects: </span>';
-				html += '<span class="filter-value">' + $('input[value="'+ effect +'"]').parent('label').attr('for') + '</span>';
-				html += '<button class="action remove_filter" data-id="' + effect + '" data-name="typical_effects" title="Remove Typical Effect ' + title + '"><span>x</span></button>';
-				html += '</li>';
-			});
-		}
-
-		if (common_usage.length > 0) {
-			common_usage.forEach(function (usage) {
-				var title = $('label[for="' + usage + '"]').text() || usage;
-				html += '<li class="item">';
-				html += '<span class="filter-label">Common Usage: </span>';
-				html += '<span class="filter-value">' + $('input[value="'+ usage +'"]').parent('label').attr('for') + '</span>';
-				html += '<button class="action remove_filter" data-id="' + usage + '" data-name="common_usage" title="Remove Common Usage ' + title + '"><span>x</span></button>';
-				html += '</li>';
-			});
-		}
-		
-		if (thc.length > 0) {
-			thc.forEach(function (th) {
-				var title = $('label[for="' + th + '"]').text() || th;
-				html += '<li class="item">';
-				html += '<span class="filter-label">Common Usage: </span>';
-				html += '<span class="filter-value">' + $('input[value="'+ th +'"]').parent('label').attr('for') + '</span>';
-				html += '<button class="action remove_filter" data-id="' + th + '" data-name="common_usage" title="Remove Common Usage ' + title + '"><span>x</span></button>';
-				html += '</li>';
-			});
-		}
-
-		if (html !== '') {
-			html += '<button class="clear_all_filter" name="clear_filter" title="Clear All">Clear All</button>';
-		}
-
-		$('ul.filtered-items').html(html).show();
-
-		// Make AJAX request
-		$.ajax({
-			url: custom_ajax_obj.ajax_url, // Use localized AJAX URL
-			type: 'POST',
-			data: {
-				action: 'filter_products',
-				nonce: custom_ajax_obj.nonce, // Use localized nonce
-				cat_name: cat_name,
-				cat_type: cat_type,
-				typical_effects: typical_effects,
-				common_usage: common_usage,
-				thc: thc,
-				current_cat: $('input[name="current_cat"]').val()
-			},
-			success: function (response) {
-				$('ul.products-block-post-template').html(response.html);
-			},
-			error: function () {
-				alert('Error applying filters.');
-			}
-		});
+        $.ajax({
+            url: custom_ajax_obj.ajax_url,
+            type: 'POST',
+            data: {
+                action: 'filter_products', 
+                nonce: custom_ajax_obj.nonce,
+                cat_name: cat_name,
+                cat_type: cat_type,
+                typical_effects: typical_effects,
+                common_usage: common_usage,
+                thc: thc,
+                current_cat: $('input[name="current_cat"]').val()
+            },
+            beforeSend: function() { 
+                $('ul.wp-block-woocommerce-product-template').html('<li class="loading-products">Loading products...</li>');
+            },
+            success: function (response) {
+                if (response.success) { 
+                    $('ul.wp-block-woocommerce-product-template').html(response.data.html);
+                } else {
+                    $('ul.wp-block-woocommerce-product-template').html('<li class="error-loading">Error loading products: ' + response.data.message + '</li>');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $('ul.wp-block-woocommerce-product-template').html('<li class="error-loading">An error occurred while filtering products. Please try again.</li>');
+            }
+        });
     });
+
+    const toggleHeaders = document.querySelectorAll('.toggle-header');
+    toggleHeaders.forEach(header => {
+        header.addEventListener('click', function () {
+            const content = this.nextElementSibling; 
+            const icon = this.querySelector('.toggle-icon');
+            if (content) {
+                const isVisible = content.style.display === 'block';
+                content.style.display = isVisible ? 'none' : 'block';
+                icon.textContent = isVisible ? '+' : 'x';
+            }
+        });
+    });
+
+    const allContents = document.querySelectorAll('.checkbox-content');
+    allContents.forEach(content => content.style.display = 'none');
 });
+
 document.addEventListener('DOMContentLoaded', function() {
     const currentUrl = window.location.href;
     const menuLinks = document.querySelectorAll('.wp-block-navigation__container a');
 
     menuLinks.forEach(link => {
         if (link.href === currentUrl) {
-            link.classList.add('active'); // Add active class to current page link
+            link.classList.add('active'); 
         }
     });
 });
@@ -903,17 +847,15 @@ jQuery(document).ready(function ($) {
     $('.apply-btn').on('click', function (e) {
         e.preventDefault();
 
-        // Check if location is enabled
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(function () {
                 document.cookie = "location_enabled=true; path=/";
 
-                // AJAX request
                 $.post(
-                    custom_ajax_obj.ajax_url, // Use localized ajax_url
+                    custom_ajax_obj.ajax_url, 
                     {
                         action: 'check_cart_and_apply_discount',
-                        nonce: custom_ajax_obj.nonce // Pass the nonce for verification
+                        nonce: custom_ajax_obj.nonce 
                     },
                     function (response) {
                         if (response.success) {
@@ -957,7 +899,6 @@ if (window.dataLayer && Array.isArray(window.dataLayer)) {
             const item = window.cartData.items[it];
             const dataLayerItem = window.dataLayer[i].ecommerce.items[it];
     
-            // Check if item exists before processing
             if (item) {
                 lineTotal += parseFloat(item.line_total || 0);
                 lineSubTotal += parseFloat(item.line_subtotal || 0);
@@ -976,83 +917,19 @@ window.dataLayer.push({
   ecommerce: window.dataLayer.find((data) => data.event === "gtm.linkClick" || data.event === "begin_checkout")?.ecommerce
 });
 															   
-if( jQuery('.woocommerce-checkout').length > 0 ){
-	if( jQuery('.wc-block-checkout__form input[id="email"]').val() != '' ){
-		
-															   
-// 		jQuery(document).on('blur', '.wc-block-checkout__form input[id="email"]', function () {
-// 			const email = $(this).val(); // Get the value of the email field
 
-// 			if (email !== '') {
-// 				// Send an AJAX request to check if the email qualifies as "new"
-// 				fetch('/check-new-customer', {
-// 					method: 'POST',
-// 					headers: { 'Content-Type': 'application/json' },
-// 					body: JSON.stringify({ email: email }),
-// 				}).then((response) => {
-// 					if (!response.ok) {
-// 						throw new Error('Network response was not ok');
-// 					}
-// 					return response.json();
-// 				})
-// 					.then((data) => {
-// 					if (data.is_new_customer) {
-// 						alert('You qualify for a 15% discount as a new customer!');
-// 					}
-// 				})
-// 					.catch((error) => {
-// 					console.error('There was a problem with the fetch operation:', error);
-// 				});
-// 			}
-// 		});
-															   
-// 		const email = jQuery('.wc-block-checkout__form input[id="email"]').val();
-
-// 		// Send an AJAX request to check if the email qualifies as "new"
-// 		fetch('/check-new-customer', {
-// 			method: 'POST',
-// 			headers: { 'Content-Type': 'application/json' },
-// 			body: JSON.stringify({ email: email })
-// 		})
-// 		.then(response => response.json())
-// 		.then(data => {
-// 			if (data.is_new_customer) {
-// 				alert('You qualify for a 15% discount as a new customer!');
-// 			}
-// 		});
-	}
-	
-// 	document.querySelector('#email').addEventListener('blur', function () {
-// 		const email = this.value;
-
-// 		// Send an AJAX request to check if the email qualifies as "new"
-// 		fetch('/check-new-customer', {
-// 			method: 'POST',
-// 			headers: { 'Content-Type': 'application/json' },
-// 			body: JSON.stringify({ email: email })
-// 		})
-// 		.then(response => response.json())
-// 		.then(data => {
-// 			if (data.is_new_customer) {
-// 				alert('You qualify for a 15% discount as a new customer!');
-// 			}
-// 		});
-// 	});
-}
 window.addEventListener("load", function () {
     setTimeout(function () {
         let button = document.querySelector('.wc-block-components-panel__button');
 
         if (button) {
-            // Set aria-expanded attribute to true
             button.setAttribute('aria-expanded', 'true');
 
-            // Check if clicking is required to expand the section
             if (button.click) {
                 button.click();
             }
         }
-    }, 1000); // Delay to ensure the element is loaded
+    }, 1000); 
 });
 
 jQuery(function ($) {
@@ -1065,35 +942,16 @@ jQuery(function ($) {
                 }
             });
         } else {
-            // If cart is empty, disable the "+" button
             $('.wc-block-components-quantity-selector__button--plus').prop('disabled', true);
         }
-    }
+    } 
 
-    // Run check when the page loads
     checkCartItems();
 
-    // Run check after cart updates (WooCommerce AJAX update event)
     $(document.body).on('wc-blocks-cart-items-updated', function () {
         checkCartItems();
     });
-});
-															   
-jQuery(document).ready(function($) {
-    $('.woocommerce-product-gallery__wrapper a').each(function() {
-        var $anchor = $(this);
-
-        if ($anchor.find('video').length > 0) {
-            $anchor.addClass('has-video');
-			$anchor.removeAttr('href');
-        } else if ($anchor.find('iframe').length > 0) {
-            $anchor.addClass('has-video');
-			$anchor.removeAttr('href');
-        } else if ($anchor.find('img').length > 0) {
-            $anchor.addClass('has-image');
-        }
-    });
-});
+}); 
 
 jQuery(document).ready(function($) {
     $(window).scroll(function() {
@@ -1109,25 +967,4 @@ jQuery(document).ready(function($) {
         $('html, body').animate({ scrollTop: 0 }, 500);
     });
 });
-	jQuery(document).ready(function($) {
-		$(".single-product .flex-viewport .woocommerce-product-gallery__wrapper > p").remove();
-	});
 	
-	document.addEventListener("DOMContentLoaded", function () {
-  // Get current pathname (like /about-us/)
-  let path = window.location.pathname;
-
-  // Clean it up into a class-friendly format
-  let slugClass = path.replace(/[^a-z0-9]/gi, '-').toLowerCase();
-
-  // Fallback for homepage
-  if (!slugClass || slugClass === '-') {
-    slugClass = 'home-page';
-  }
-
-  // Prefix to avoid conflicts
-  let uniqueClass = 'page-' + slugClass;
-
-  // Add to body
-  document.body.classList.add(uniqueClass);
-});

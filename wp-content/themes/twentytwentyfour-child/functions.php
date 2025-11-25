@@ -13,7 +13,7 @@ if ( !function_exists( 'chld_thm_cfg_locale_css' ) ):
     }
 endif;
 add_filter( 'locale_stylesheet_uri', 'chld_thm_cfg_locale_css' );
-
+         
 if ( !function_exists( 'child_theme_configurator_css' ) ):
     function child_theme_configurator_css() {
         wp_enqueue_style( 'chld_thm_cfg_child', trailingslashit( get_stylesheet_directory_uri() ) . 'style.css', array(  ) );
@@ -26,7 +26,7 @@ if ( !function_exists( 'child_theme_configurator_css' ) ):
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce'    => wp_create_nonce('custom_ajax_nonce')
         ));
-
+        
         wp_enqueue_script('progressbar', get_stylesheet_directory_uri() . '/assist/js/chart.min.js', array('jquery'), null, true);
 		wp_enqueue_script('select-js', get_stylesheet_directory_uri() . '/assist/js/select2.min.js', array('jquery'), null, true);
          // Enqueue WooCommerce styles if not already enqueued
@@ -128,7 +128,7 @@ function product_field( $post ) {
         <input type="text" name="relieves" id="relieves" value="<?php echo $relieves; ?>" />
     </p>
 </div>
-<?php
+<?php   
 }
 
 add_action( 'save_post', 'addproduct_meta_box_save' );
@@ -187,7 +187,7 @@ function wc_category_tabs_shortcode($atts) {
         <div class="tabs">
             <ul class="tab-links">
                 <li><a href="#latest" aria-label="<?php echo __("Top Picks Tab", "twentytwentyfour-child"); ?>">Top Picks</a></li>
-               <?php
+               <?php 
 				// Sort categories in descending order by name
 				usort($product_categories, function($a, $b) {
 					return strcmp($b->name, $a->name); // Sort in descending order
@@ -197,9 +197,9 @@ function wc_category_tabs_shortcode($atts) {
 					$checkbox_value = get_field('categories_checkbox', 'product_cat_' . $category->term_id);
 					if (is_array($checkbox_value) && in_array('yes', $checkbox_value)) : ?>
 						<li><a href="#<?php echo esc_attr($category->slug); ?>" aria-label="<?php echo esc_attr($category->name); ?>"><?php echo esc_html($category->name); ?></a></li>
-					<?php
+					<?php 
 					endif;
-				endforeach;
+				endforeach; 
 				?>
 
             </ul>
@@ -219,29 +219,29 @@ function wc_category_tabs_shortcode($atts) {
                         <?php
                             $latest_query = new WP_Query(array(
                                 'post_type' => 'product',
-                                'posts_per_page' => 10,
+                                'posts_per_page' => 10, 
                                 'orderby' => 'date',
                                 'order' => 'DESC',
                                 'post__not_in'   => array(36455)
                             ));
-                            if($latest_query->have_posts()) : while($latest_query->have_posts()) : $latest_query->the_post();
+                            if($latest_query->have_posts()) : while($latest_query->have_posts()) : $latest_query->the_post(); 
                                 global $product;
                             ?>
                        <div class="product-item swiper-slide">
 						   <a href="<?php echo get_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>">
-							   <img
-									src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>"
+							   <img 
+									src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>" 
 									alt="<?php echo esc_attr(get_the_title()); ?>"
 									>
-						   </a>
+						   </a>                    
 						   <div class="cat-match-height">
                                  <h2><a href="<?php the_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>"><?php the_title(); ?></a></h2>
-                                <?php
+                                <?php 
                                     global $product;
                                     $average = $product->get_average_rating();
                                     $review_count = $product->get_review_count();
                                     $regular_price = $product->get_regular_price();
-
+                                    
                                     // For variable products, get the first variation's regular price
                                     if ($product->is_type('variable')) {
                                         $available_variations = $product->get_available_variations();
@@ -273,7 +273,7 @@ function wc_category_tabs_shortcode($atts) {
                     <div class="swiper-button-prev"></div>
                 </div>
             </div>
-            <?php
+            <?php 
             foreach($product_categories as $category) :
                 $checkbox_value = get_field('categories_checkbox', 'product_cat_' . $category->term_id);
                 if (is_array($checkbox_value) && in_array('yes', $checkbox_value)) : ?>
@@ -299,24 +299,24 @@ function wc_category_tabs_shortcode($atts) {
                                         ),
                                     ),
                                 ));
-                                if($query->have_posts()) : while($query->have_posts()) : $query->the_post();
+                                if($query->have_posts()) : while($query->have_posts()) : $query->the_post(); 
                                     global $product;
                                 ?>
                           <div class="product-item swiper-slide">
 							  <a href="<?php echo get_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>">
-								  <img
-									   src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>"
+								  <img 
+									   src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>" 
 									   alt="<?php echo esc_attr(get_the_title()); ?>"
 									   >
-							  </a>
+							  </a>      
 							  <div class="cat-match-height">
                                    <h2><a href="<?php the_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>"><?php the_title(); ?></a></h2>
-                                    <?php
+                                    <?php 
                                         global $product;
                                         $average = $product->get_average_rating();
                                         $review_count = $product->get_review_count();
                                         $regular_price = $product->get_regular_price();
-
+                                        
                                         // For variable products, get the first variation's regular price
                                         if ($product->is_type('variable')) {
                                             $available_variations = $product->get_available_variations();
@@ -348,9 +348,9 @@ function wc_category_tabs_shortcode($atts) {
                         <div class="swiper-button-prev"></div>
                     </div>
                 </div>
-                <?php
+                <?php 
                 endif;
-            endforeach;
+            endforeach; 
             ?>
         </div>
     </div>
@@ -507,12 +507,12 @@ add_shortcode('custom_recently_viewed_products', 'custom_wc_recently_viewed_prod
 
 function custom_post_grid_shortcode($atts) {
     $atts = shortcode_atts(array(
-        'posts_per_page' => 4,
+        'posts_per_page' => 4,  
     ), $atts, 'post_grid');
 
     $args = array(
-        'post_type' => 'post',
-        'posts_per_page' => $atts['posts_per_page'],
+        'post_type' => 'post',  
+        'posts_per_page' => $atts['posts_per_page'], 
     );
 
     $query = new WP_Query($args);
@@ -539,7 +539,7 @@ function custom_post_grid_shortcode($atts) {
 <?php
         }
         echo '</div>';
-        wp_reset_postdata();
+        wp_reset_postdata();  
     } else {
         echo '<p>No posts found</p>';
     }
@@ -551,7 +551,7 @@ add_shortcode('post_grid', 'custom_post_grid_shortcode');
 function todays_recommendations_shortcode($atts) {
     $atts = shortcode_atts(
         array(
-            'limit' => 4,
+            'limit' => 4, 
         ), $atts, 'todays_recommendations'
     );
     $args = array(
@@ -559,7 +559,7 @@ function todays_recommendations_shortcode($atts) {
         'posts_per_page' => $atts['limit'],
         'meta_query' => array(
             array(
-                'key' => 'recommendations_product',
+                'key' => 'recommendations_product', 
                 'value' => 'yes',
                 'compare' => 'LIKE'
             ),
@@ -577,19 +577,19 @@ function todays_recommendations_shortcode($atts) {
             $product_title = get_the_title();
             $product_link = get_permalink();
             $product_image = wp_get_attachment_image_src(get_post_thumbnail_id($product_id), 'single-post-thumbnail')[0];
-
+            
             $regular_price = $product->get_regular_price();
-
+        
             if ($product->is_type('variable')) {
                 $available_variations = $product->get_available_variations();
                 if (!empty($available_variations)) {
-                    $regular_price = $available_variations[0]['display_regular_price'];
+                    $regular_price = $available_variations[0]['display_regular_price']; 
                 }
             }
-
+        
             $average = $product->get_average_rating();
             $review_count = $product->get_review_count();
-
+        
             echo '<li class="product">';
             echo '<div class="product-top-right">';
             echo '<a href="?add-to-cart=' . $product_id . '&redirect_to_cart=1" aria-label="Add ' . esc_attr($product_title) . '" class="add-to-cart"><img src="' . esc_url(get_stylesheet_directory_uri() . '/img/heard.svg') . '" alt="Add to Cart" width="44" height="44"></a>';
@@ -615,9 +615,9 @@ function todays_recommendations_shortcode($atts) {
                 echo '<span class="price">' . wc_price($regular_price) . '</span>';
             echo '</div>';
             echo '<div class="add-to-cart-button">';
-            woocommerce_template_loop_add_to_cart();
+            woocommerce_template_loop_add_to_cart(); 
             echo '</div>';
-
+        
             echo '</div>';
             echo '</li>';
         endwhile;
@@ -638,7 +638,7 @@ add_shortcode('todays_recommendations', 'todays_recommendations_shortcode');
 function sale_products_shortcode($atts) {
     $atts = shortcode_atts(
         array(
-            'limit' => '4',
+            'limit' => '4', 
         ), $atts, 'sale_products' );
 
     $args = array(
@@ -657,7 +657,7 @@ function sale_products_shortcode($atts) {
     $sale_products = new WP_Query($args);
 
     ob_start();
-
+    
     if ($sale_products->have_posts()) {
         echo '<ul class="sale-products">';
         while ($sale_products->have_posts()) {
@@ -676,7 +676,7 @@ function sale_products_shortcode($atts) {
     } else {
         echo 'No sale products found.';
     }
-
+    
     wp_reset_postdata();
 
     return ob_get_clean();
@@ -689,7 +689,7 @@ add_shortcode('sale_products_short', 'sale_products_shortcode');
 function sale_products_shortcode_home($atts) {
     $atts = shortcode_atts(
         array(
-            'limit' => '4',
+            'limit' => '4', 
         ), $atts, 'sale_products' );
 
     $args = array(
@@ -728,7 +728,7 @@ function sale_products_shortcode_home($atts) {
         ?>
             </div>
         </div>
-
+   
         <?php
     } else {
         echo 'No sale products found.';
@@ -770,11 +770,11 @@ function display_sponsored_products($atts) {
         echo '<div class="sponsored-products-grid">';
         echo '<div class="swiper-container">';
         echo '<div class="swiper-wrapper">';
-
+    
         while ($loop->have_posts()) {
             $loop->the_post();
             global $product;
-
+    
             $comment_count = get_comments_number($product->get_id());
             $product_link = get_permalink();
             $product_thumbnail = woocommerce_get_product_thumbnail();
@@ -784,10 +784,10 @@ function display_sponsored_products($atts) {
             $price_html = $product->get_price_html();
             $add_to_cart_url = esc_url($product->add_to_cart_url());
             $add_to_cart_text = esc_html($product->add_to_cart_text());
-
+    
             echo '<div class="swiper-slide">';
             echo '<div class="product">';
-
+    
             echo '<a href="' . $product_link . '" aria-label="'. $product_title .'">' . $product_thumbnail . '</a>';
             echo '<h2 class="woocommerce-loop-product__title"><a href="' . $product_link . '" aria-label="'. $product_title .'">' . $product_title . '</a></h2>';
             echo '<div class="rating-wrap">';
@@ -801,7 +801,7 @@ function display_sponsored_products($atts) {
             echo '</div>';
             echo '</div>';
         }
-
+    
         echo '</div>';
         echo '<div class="swiper-pagination"></div>';
         echo '<div class="swiper-button-next"></div>';
@@ -811,7 +811,7 @@ function display_sponsored_products($atts) {
     } else {
         echo '<p>' . __('No sponsored products found', 'woocommerce') . '</p>';
     }
-
+    
     wp_reset_postdata();
 
     return ob_get_clean();
@@ -860,7 +860,7 @@ function display_recently_viewed_products() {
             ?>
 <div class="recent-container">
     <div class="swiper-wrapper">
-        <?php while ($recent_products->have_posts()) : $recent_products->the_post();
+        <?php while ($recent_products->have_posts()) : $recent_products->the_post(); 
             global $product;  // Get the global product object
             $average = $product->get_average_rating();
             $review_count = $product->get_review_count();
@@ -1042,10 +1042,10 @@ function allow_svg_upload( $mimes ) {
 }
 add_filter( 'upload_mimes', 'allow_svg_upload' );
 function generate_progress_bar_shortcode() {
-    ob_start();
+    ob_start(); 
     ?>
     <div class="progress-bar-grid">
-        <?php
+        <?php 
         $thc_progress_bar = get_field('htc_progress_bar', get_the_ID());
         if (!$thc_progress_bar) {
             $thc_progress_bar = get_field('htc_progress_bar', 'option');
@@ -1058,7 +1058,7 @@ function generate_progress_bar_shortcode() {
             <canvas id="thcChart" width="150" height="150"></canvas>
         </section>
 
-        <?php
+        <?php 
         $cbd_progress_bar = get_field('cbd_progress_bar', get_the_ID());
         if (!$cbd_progress_bar) {
             $cbd_progress_bar = get_field('cbd_progress_bar', 'option');
@@ -1070,12 +1070,12 @@ function generate_progress_bar_shortcode() {
             <input type="range" value="<?php echo esc_attr($cbd_progress_bar); ?>" min="0" max="100" hidden step="1">
             <canvas id="cbdChart" width="150" height="150"></canvas>
         </section>
-
+		
         <div class="progress-bar-section">
             <div class="typical-image">
                 <div class="effects-typical_heading typical--heading">
                     <h3>Effect</h3>
-
+                    
                 </div>
 				 </div>
         </div>
@@ -1083,7 +1083,7 @@ function generate_progress_bar_shortcode() {
             <div class="typical-image">
                 <div class="effects-typical_heading typical--heading">
                     <h3>Relief</h3>
-
+                    
                 </div>
             </div>
         </div>
@@ -1109,7 +1109,7 @@ $product = wc_get_product();
 }
 
 if ( ! is_a( $product, 'WC_Product' ) ) {
-return;
+return; 
 }
 
 $defined_shipping_class = "Estimated Delivery in 7-15 days";
@@ -1124,21 +1124,21 @@ echo '<p class="product-shipping-class">' . esc_html($term->name) . '</p>';
 }
 
 add_action( 'woocommerce_before_quantity_input_field', 'bbloomer_display_quantity_minus' );
-
+ 
 function bbloomer_display_quantity_minus() {
    if ( ! is_product() ) return;
    echo '<button type="button" class="minus" >-</button>';
 }
-
+ 
 add_action( 'woocommerce_after_quantity_input_field', 'bbloomer_display_quantity_plus' );
-
+ 
 function bbloomer_display_quantity_plus() {
    if ( ! is_product() ) return;
    echo '<button type="button" class="plus" >+</button>';
 }
-
+ 
 add_action( 'woocommerce_before_single_product', 'bbloomer_add_cart_quantity_plus_minus' );
-
+ 
 function bbloomer_add_cart_quantity_plus_minus() {
    wc_enqueue_js( "
       $('form.cart').on( 'click', 'button.plus, button.minus', function() {
@@ -1173,11 +1173,11 @@ function display_related_products($atts) {
     global $product;
 
     $atts = shortcode_atts(array(
-        'limit' => 4, //
+        'limit' => 4, // 
     ), $atts, 'related_products');
 
     $related_ids = wc_get_related_products($product->get_id(), $atts['limit']);
-
+    
     if (empty($related_ids)) {
         return '<p>No related products found.</p>';
     }
@@ -1227,11 +1227,11 @@ function get_woocommerce_product($product_id) {
     $args = array(
         'include' => array( 144 ),
     );
-
+    
     $products = wc_get_products( $args );
-
+    
     foreach ($products as $product) {
-        $saleproduct_id = $product->get_id();
+        $saleproduct_id = $product->get_id(); 
         $sale_price = $product->get_sale_price();
         $regular_price = $product->get_regular_price();
         $sales_price_from = $product->get_date_on_sale_from();
@@ -1240,7 +1240,7 @@ function get_woocommerce_product($product_id) {
         $new_price_to = $sales_price_to ? date('Y-m-d H:i:s', strtotime($sales_price_to)) : '';
         $sale_free = $sale_price > 0 ? $sale_price : 'Free';
         $image = wp_get_attachment_image_src(get_post_thumbnail_id($saleproduct_id), 'full');
-
+    
         $html .= '<div class="sale-image-contant">';
         $html .= '<div class="sale-iamge">';
         $html .= '<div class="pro-image"><img src="' . $image[0] . '"></div></div>';
@@ -1255,15 +1255,15 @@ function get_woocommerce_product($product_id) {
         $html .= '<input type="hidden" id="new_price_from" name="new_price_from" value="' . $new_price_from . '">';
         $html .= '<input type="hidden" id="new_price_to" name="new_price_to" value="' . $new_price_to . '">';
     }
-
-    return $html;
-
+    
+    return $html; 
+    
     }
     add_shortcode( 'single_product', 'get_woocommerce_product' );
 
 add_filter( 'wpsl_meta_box_fields', 'custom_meta_box_fields' );
 function custom_meta_box_fields( $meta_fields ) {
-
+    
     $meta_fields[__( 'Information', 'wpsl' )] = array(
         'mobile_number' => array(
             'label' => __( 'Mobile Numnber', 'wpsl' )
@@ -1300,7 +1300,7 @@ function custom_meta_box_fields( $meta_fields ) {
         ),
          'nurserie_quantity_fifth' => array(
             'label' => __( 'Pricing 1000 + ', 'wpsl' )
-        ),
+        ),  
          'delivery_range' => array(
          'label' => __( 'Delivery Range', 'wpsl' )
         ),
@@ -1309,7 +1309,7 @@ function custom_meta_box_fields( $meta_fields ) {
         ),
          'nurserie_updated_inventory' => array(
          'label' => __( 'Updated Inventory', 'wpsl' )
-        ),
+        ), 
         'nurserie_order_confirmation' => array(
             'label' => __( 'Order Confirmation Text', 'wpsl' ),
             'type'  => 'wp_editor'
@@ -1327,78 +1327,78 @@ add_filter( 'wpsl_templates', 'custom_templates' );
 add_filter( 'wpsl_frontend_meta_fields', 'custom_frontend_meta_fields' );
 function custom_frontend_meta_fields( $store_fields ) {
 
-    $store_fields['wpsl_product_strain_listing'] = array(
-        'name' => 'product_strain_listing'
+    $store_fields['wpsl_product_strain_listing'] = array( 
+        'name' => 'product_strain_listing' 
     );
-    $store_fields['wpsl_strain_menu'] = array(
+    $store_fields['wpsl_strain_menu'] = array( 
         'name' => 'strain_menu',
         'type' => 'url'
     );
-    $store_fields['wpsl_price_list'] = array(
+    $store_fields['wpsl_price_list'] = array( 
         'name' => 'price_list',
         'type' => 'text'
     );
-    $store_fields['wpsl_mobile_number'] = array(
+    $store_fields['wpsl_mobile_number'] = array( 
         'name' => 'mobile_number',
         'type' => 'number'
     );
-    $store_fields['wpsl_product_list'] = array(
+    $store_fields['wpsl_product_list'] = array( 
         'name' => 'product_list',
         'type' => 'textarea'
     );
-    $store_fields['wpsl_price_rate'] = array(
+    $store_fields['wpsl_price_rate'] = array( 
         'name' => 'price_rate',
         'type' => 'textarea'
     );
-    $store_fields['wpsl_coverage'] = array(
+    $store_fields['wpsl_coverage'] = array( 
         'name' => 'coverage',
         'type' => 'text'
     );
-    $store_fields['wpsl_extended_coverage'] = array(
+    $store_fields['wpsl_extended_coverage'] = array( 
         'name' => 'extended_coverage',
         'type' => 'text'
-    );
-     $store_fields['wpsl_minimum_order'] = array(
+    ); 
+     $store_fields['wpsl_minimum_order'] = array( 
         'name' => 'minimum_order',
         'type' => 'text'
     );
-     $store_fields['wpsl_nursrey_pickup_address'] = array(
+     $store_fields['wpsl_nursrey_pickup_address'] = array( 
         'name' => 'nursrey_pickup_address',
         'type' => 'text'
     );
-     $store_fields['wpsl_nurserie_quantity_one'] = array(
+     $store_fields['wpsl_nurserie_quantity_one'] = array( 
         'name' => 'nurserie_quantity_one',
         'type' => 'text'
     );
-    $store_fields['wpsl_nurserie_quantity_second'] = array(
+    $store_fields['wpsl_nurserie_quantity_second'] = array( 
         'name' => 'nurserie_quantity_second',
         'type' => 'text'
-    );
-    $store_fields['wpsl_nurserie_quantity_third'] = array(
+    );   
+    $store_fields['wpsl_nurserie_quantity_third'] = array( 
         'name' => 'nurserie_quantity_third',
         'type' => 'text'
     );
-    $store_fields['wpsl_nurserie_quantity_fourth'] = array(
+    $store_fields['wpsl_nurserie_quantity_fourth'] = array( 
         'name' => 'nurserie_quantity_fourth',
         'type' => 'text'
     );
-    $store_fields['wpsl_nurserie_quantity_fifth'] = array(
+    $store_fields['wpsl_nurserie_quantity_fifth'] = array( 
         'name' => 'nurserie_quantity_fifth',
         'type' => 'text'
     );
-    $store_fields['wpsl_nurserie_delivery_range'] = array(
+    $store_fields['wpsl_nurserie_delivery_range'] = array( 
         'name' => 'delivery_range',
         'type' => 'text'
     );
-    $store_fields['wpsl_nurserie_grower_notes'] = array(
+    $store_fields['wpsl_nurserie_grower_notes'] = array( 
         'name' => 'nurserie_grower_notes',
         'type' => 'text'
-    );
-    $store_fields['wpsl_nurserie_updated_inventory'] = array(
+    ); 
+    $store_fields['wpsl_nurserie_updated_inventory'] = array( 
         'name' => 'nurserie_updated_inventory',
         'type' => 'text'
-    );
-    $store_fields['wpsl_nurserie_order_confirmation'] = array(
+    );      
+    $store_fields['wpsl_nurserie_order_confirmation'] = array( 
         'name' => 'nurserie_order_confirmation',
     );
     return $store_fields;
@@ -1409,7 +1409,7 @@ function wpsl_address_data() {
     global $wpsl_settings;
 
     $address_format = 'test';
-
+  
     return $address_format;
 }
 
@@ -1427,7 +1427,7 @@ function custom_store_meta( $store_meta, $store_id ) {
   $data = get_field_object('select_strain_products',$store_id);
   $product_lists = array();
   if ( count( $data['value'] ) > 1 ) {
-    foreach($data['value'] as $term ) {
+    foreach($data['value'] as $term ) {     
       $permalink = get_permalink( $term->ID );
       $product_lists[] = '<p>' .$term->post_title. '</p>';
     }
@@ -1440,24 +1440,24 @@ function custom_store_meta( $store_meta, $store_id ) {
 
 add_filter( 'wpsl_store_meta', 'sample_callback', 10, 2 );
 function sample_callback($store_meta, $store_id) {
-
+    
     $save_bookmark = array();
     $store_meta['save_book_mark']='';
     if(isset($_COOKIE['bookmarks'])){
        foreach($_COOKIE['bookmarks'] as $name => $value){
-
+                    
             if($store_id == $value){
                 $save_bookmark[]='true';
             }
-        }
+        } 
     }
-    $store_meta['save_book_mark'] = $save_bookmark;
+    $store_meta['save_book_mark'] = $save_bookmark; 
     return $store_meta;
 }
 
 add_filter( 'wpsl_store_meta', 'custom_store_meta_text', 10, 2 );
 function custom_store_meta_text( $store_meta, $store_id ) {
-
+    
     $confirm_text = get_field_object('order_confirmation_text', $store_id);
     $nursery_confirm_text = $confirm_text["value"];
 
@@ -1571,7 +1571,7 @@ function custom_listing_template() {
                        <img src="/wp-content/uploads/2024/07/menu.svg">   Strains
                     </a>
                    <a data-fancybox class="starin_list" data-id="<%= id %>" href="#starin_list-<%= id %>" aria-label="Price">
-                       <img src="/wp-content/uploads/2024/08/cash-app.svg">   Price
+                       <img src="/wp-content/uploads/2024/08/cash-app.svg">   Price 
                     </a>
                 </li>';
 
@@ -1653,7 +1653,7 @@ function custom_listing_template() {
         </div>';
 
     $listing_template .= '
-
+       
     </li>';
 
     return $listing_template;
@@ -1949,14 +1949,14 @@ function show_state_city_list($atts) {
 
         if ($stores_query->have_posts()) {
             $output .= '<div class="store-grid-container">';
-
+        
             while ($stores_query->have_posts()) {
                 $stores_query->the_post();
-
+        
                 $city = get_post_meta(get_the_ID(), 'wpsl_city', true);
-
+        
                 $map_url = get_post_meta(get_the_ID(), 'city_map', true);
-
+        
                 $output .= '<div class="store-grid-item">';
                 if (!empty($map_url)) {
                     $output .= '<iframe src="' . esc_url($map_url) . '" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>';
@@ -1964,24 +1964,24 @@ function show_state_city_list($atts) {
                 $output .= '<h4>Clones for sale in ' . esc_html($city) . '</h4>';
                 $output .= '<p>Available: Clones, Teens, & Shipping</p>';
                 $output .= '<div class="button-wrap green-btn-line btn-store btn-store-line green-btn">';
-
+                
                 // Add city URL to the View Strains button, removing commas
                 $city_sanitized = str_replace(',', '', $city); // Remove commas from the city name
-                $city_url = site_url('city') . '?city=' . urlencode($city_sanitized);
+                $city_url = site_url('city') . '?city=' . urlencode($city_sanitized); 
                 $output .= '<a href="' . esc_url($city_url) . '" class="button" aria-label="View Strains">View Strains</a> ';
                 $output .= '<a href="#" class="button" aria-label="Contact Us">Contact Us</a>';
                 $output .= '</div>';
-                $output .= '</div>';
+                $output .= '</div>'; 
             }
-
+        
             // End output
-            $output .= '</div>';
-
+            $output .= '</div>'; 
+        
             wp_reset_postdata();
         } else {
             $output = __('No stores found in the specified state.', 'wpsl');
         }
-
+        
     } else {
         $output = __('State not specified.', 'wpsl');
     }
@@ -2080,9 +2080,9 @@ function display_city_info_shortcode() {
     if (isset($_GET['city']) && !empty($_GET['city'])) {
         $city = sanitize_text_field($_GET['city']);
         $term_city = get_term_by('name', $city, 'city');
-
+        
         $city_info = get_field('table_content', 'term_'. $term_city->term_id);
-
+        
         ob_start();
 
         if( $city_info ) {
@@ -2093,7 +2093,7 @@ function display_city_info_shortcode() {
                 echo '<li class="tab_list" data-id="'. $key .'">' . esc_html( $city_name ) . '</li>';
             }
             echo '</ul>';
-
+            
             foreach( $city_info as $key => $row ) {
                 echo '<div class="tab_content" id="tab-content-'. $key .'">';
                 echo $row['table_details'];
@@ -2101,11 +2101,11 @@ function display_city_info_shortcode() {
             }
             echo '</div>';
         } else {
-
+            
         }
-
+        
     }else{
-
+       
     }
     return ob_get_clean();
 }
@@ -2372,28 +2372,28 @@ function display_faqs_shortcode($atts) {
         }
     }
 
-
+    
     $args = array(
         'post_type' => 'faq',
         'posts_per_page' => -1,
         'meta_query'     => array(
-            'relation' => 'OR',
+            'relation' => 'OR',  
         ),
-
+       
     );
     foreach ( $product_categories_ids as $category_id ) {
         $args['meta_query'][] = array(
             'key'     => 'faq_categories',
-            'value'   => '"' . $category_id . '"',
+            'value'   => '"' . $category_id . '"',  
             'compare' => 'LIKE',
         );
     }
 
     $faq_query = new WP_Query($args);
     ob_start();
-
+   
     if ($faq_query->have_posts()) {
-
+        
         echo '<div class="faqs">';
 
         while ($faq_query->have_posts()) {
@@ -2416,7 +2416,7 @@ function display_faqs_shortcode($atts) {
             $counter++;
         }
 
-        echo '</div>';
+        echo '</div>'; 
         echo '</div>';
 
         if ($counter > 8) {
@@ -2447,7 +2447,7 @@ function display_faqs_shortcode($atts) {
         }
         })(jQuery);
     </script>
-    <?php
+    <?php 
     return ob_get_clean();
 }
 
@@ -2470,7 +2470,7 @@ function count_faqs_by_category() {
         'meta_query'     => array(
             'relation' => 'OR',  // Use 'OR' to search for any of the category values
         ),
-
+       
     );
     foreach ( $product_category_ids as $category_id ) {
         $args['meta_query'][] = array(
@@ -2531,7 +2531,7 @@ class Sale_Product_Widget extends WP_Widget {
 
     private function display_sale_products() {
         $current_time = current_time('timestamp');
-
+        
         $args = array(
             'post_type' => 'product',
             'meta_query' => array(
@@ -2550,7 +2550,7 @@ class Sale_Product_Widget extends WP_Widget {
                 )
             )
         );
-
+        
         $query = new WP_Query($args);
         if ($query->have_posts()) {
             echo '<ul>';
@@ -2575,7 +2575,7 @@ function sale_products_with_countdown_shortcode($atts) {
     ob_start();
 
     $current_time = current_time('timestamp');
-
+    
     $args = array(
         'post_type' => 'product',
         'meta_query' => array(
@@ -2594,9 +2594,9 @@ function sale_products_with_countdown_shortcode($atts) {
             )
         )
     );
-
+    
     $query = new WP_Query($args);
-
+    
     if ($query->have_posts()) {
         echo '<div class="sale-countdown-container">';
         echo '<div class="swiper-wrapper">'; // Swiper wrapper start
@@ -2609,15 +2609,15 @@ function sale_products_with_countdown_shortcode($atts) {
 
             echo '<div class="swiper-slide">'; // Swiper slide start
             echo '<span class="sale-countdown" data-end-date="' . date('Y-m-d H:i:s', $end_date) . '"></span>'; // Countdown timer
-            echo $product_image;
-            echo '<h3>' . $product_title . '</h3>';
-            echo '</div>';
+            echo $product_image; 
+            echo '<h3>' . $product_title . '</h3>'; 
+            echo '</div>'; 
         }
-        echo '</div>';
+        echo '</div>'; 
         echo '<div class="swiper-button-next"></div>';
         echo '<div class="swiper-button-prev"></div>';
         echo '</div>'; // Swiper container end
-
+        
         wp_reset_postdata();
     } else {
         echo '<p>No sale products found.</p>';
@@ -2642,14 +2642,14 @@ function sale_products_with_countdown_shortcode($atts) {
                 var countdown = setInterval(function () {
                     var now = new Date().getTime();
                     var distance = endDate - now;
-
+                    
                     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
                     var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
+                    
                     element.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-
+                    
                     if (distance < 0) {
                         clearInterval(countdown);
                         element.innerHTML = "Sale ended";
@@ -2671,7 +2671,7 @@ function custom_express_checkout_redirect() {
         jQuery(document).ready(function($) {
             $('.express-checkout-button').on('click', function(e) {
                 e.preventDefault();
-
+                
                 var form = $(this).closest('form.cart');
                 var formData = form.serialize();
 
@@ -2698,7 +2698,7 @@ function custom_product_filter() {
         <div class="filtered-options-list">
             <ul class="filtered-items"></ul>
         </div>
-
+                
         <div class="filter-checkbox-group">
             <h4 class="toggle-header">Strain Type <span class="toggle-icon">+</span></h4>
             <div class="checkbox-content">
@@ -2707,7 +2707,7 @@ function custom_product_filter() {
                 <label for="Indica"><input type="checkbox" name="cat_type[]" value="Indica"> Indica</label>
             </div>
         </div>
-
+        
         <div class="filter-checkbox-group">
             <h4 class="toggle-header">By Effect <span class="toggle-icon">+</span></h4>
             <div class="checkbox-content">
@@ -2745,12 +2745,12 @@ function custom_product_filter() {
             <div class="checkbox-group" data-title="Category">
                 <h4 class="toggle-header">Product type <span class="toggle-icon">+</span></h4>
                 <div class="checkbox-content">
-                    <?php
+                    <?php 
                     $current_category = get_queried_object();
-                    if ($current_category && is_a($current_category, 'WP_Term')) {
+                    if ($current_category && is_a($current_category, 'WP_Term')) { 
                         $subcategories = get_terms('product_cat', array(
                             'hide_empty' => false,
-                            'parent'     => $current_category->term_id
+                            'parent'     => $current_category->term_id  
                         ));
                         if (!empty($subcategories)) {
                             foreach ($subcategories as $subcat) {
@@ -2764,7 +2764,7 @@ function custom_product_filter() {
                 </div>
             </div>
         </div>
-
+            
         <div class="filter-checkbox-group">
             <h4 class="toggle-header">Psychoactive Level <span class="toggle-icon">+</span></h4>
             <div class="checkbox-content">
@@ -2777,7 +2777,7 @@ function custom_product_filter() {
         </div>
 
         <button id="apply-filters">Apply Filters</button>
-
+        
     </div>
     <?php
     return ob_get_clean();
@@ -3014,7 +3014,7 @@ function custom_discount_after_10th_product($cart) {
 
     foreach ($cart->get_cart() as $cart_item_key => $cart_item) {
         $product_quantity = $cart_item['quantity'];
-        $original_price = $cart_item['data']->get_regular_price();
+        $original_price = $cart_item['data']->get_regular_price(); 
 
         if ($product_quantity > 10) {
             $discounted_price = $original_price * 0.85;
@@ -3071,9 +3071,9 @@ function show_discount_notice_in_cart_totals() {
 //     wp_send_json_success(array('message' => 'Coupon applied! Redirecting to cart.'));
 // }
 
-function remove_image_zoom_support()
-{ remove_theme_support( 'wc-product-gallery-zoom' );
-}
+function remove_image_zoom_support() 
+{ remove_theme_support( 'wc-product-gallery-zoom' ); 
+} 
 add_action( 'wp', 'remove_image_zoom_support', 100 );
 add_action('woocommerce_cart_calculate_fees', 'apply_email_based_new_customer_discount', 10, 1);
 
@@ -3085,15 +3085,15 @@ function apply_email_based_new_customer_discount($cart) {
     if (empty($email)) {
         $email = WC()->customer->get_billing_email();
         if (empty($email)) {
-            $email = WC()->session->get('guest_email');
+            $email = WC()->session->get('guest_email'); 
         }
         if (!empty($email)) {
             WC()->session->set('customer_email', $email);
         }
     }
-
+    
     if (empty($email)) return;
-
+    
     if (!wc_customer_has_orders($email)) {
         $discount = $cart->get_cart_contents_total() * 0.15;
         $cart->add_fee(__('15% Off for New Customers', 'text-domain'), -$discount, false);
@@ -3162,7 +3162,7 @@ function prevent_combined_discounts() {
 //add_action('wp_footer', 'happy_hour_banner');
 function happy_hour_banner() {
     if (is_checkout()) {
-        return;
+        return; 
     }
 
     $current_time = current_time('H:i');
@@ -3197,7 +3197,7 @@ function notify_new_customer_discount_reapplied() {
 add_action('woocommerce_checkout_process', 'prevent_duplicate_orders_by_name');
 
 function prevent_duplicate_orders_by_name() {
-    if (is_admin()) return;
+    if (is_admin()) return; 
 
     $first_name = sanitize_text_field($_POST['billing_first_name']);
     $last_name  = sanitize_text_field($_POST['billing_last_name']);
@@ -3238,7 +3238,7 @@ function display_product_slider($category) {
     if ($query->have_posts()) : ?>
         <div class="swiper-container-<?php echo esc_attr($category); ?> cat_slider">
             <div class="swiper-wrapper">
-                <?php while ($query->have_posts()) : $query->the_post();
+                <?php while ($query->have_posts()) : $query->the_post(); 
                     global $product; ?>
                     <div class="swiper-slide">
                         <div class="product-card">
@@ -3331,7 +3331,7 @@ add_action('woocommerce_removed_coupon', 'remove_freebie_if_coupon_removed', 10,
 function remove_freebie_if_coupon_removed($coupon_code) {
     if ($coupon_code === 'myfreebie') { // If the coupon is removed
         $additional_product_id = 36455;
-
+        
         foreach (WC()->cart->get_cart() as $cart_item_key => $cart_item) {
             if ($cart_item['product_id'] == $additional_product_id) {
                 WC()->cart->remove_cart_item($cart_item_key); // Remove the freebie
@@ -3364,7 +3364,7 @@ function validate_new_customer_for_promo() {
                 ]
             ]
         ];
-
+        
         $existing_orders = wc_get_orders($query_args);
 
         if (!empty($existing_orders)) {
@@ -3401,9 +3401,9 @@ function custom_get_product_id_and_full_description_shortcode( $atts ) {
 
     $max_words = 30;
     $full_description_preview = wp_trim_words( $full_description, $max_words, '...' );
-
+    
     $word_count = str_word_count( strip_tags( $full_description ) );
-
+    
     $show_view_more = $word_count > $max_words;
 
     $html = '<div class="product-description-preview">';
@@ -3414,7 +3414,7 @@ function custom_get_product_id_and_full_description_shortcode( $atts ) {
     if ($show_view_more) {
         $html .= '<span class="read-more-toggle"><a href="javascript:void(0);" class="view-more">View More Details</a></span>';
     }
-
+    
     $html .= '</div>';
 
     $html .= '<script>
@@ -3445,8 +3445,8 @@ add_shortcode( 'get_product_id_and_full_description', 'custom_get_product_id_and
 //add_action( 'template_redirect', 'redirect_to_checkout_if_minimum_met' );
 
 function redirect_to_checkout_if_minimum_met() {
-    $minimum = 50;
-
+    $minimum = 50; 
+    
     if ( is_cart() ) {
         if ( WC()->cart->total >= $minimum ) {
             wp_safe_redirect( wc_get_checkout_url() );
@@ -3475,7 +3475,7 @@ function video_gallery_shortcode() {
     ob_start();
     global $product;
     if (!is_a($product, 'WC_Product')) {
-        $product_id = get_the_ID();
+        $product_id = get_the_ID(); 
     } else {
         $product_id = $product->get_id();
     }
@@ -3508,7 +3508,7 @@ function custom_inline_js(){ ?>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             if (jQuery('.gl-product-slides').length > 0) {
-
+                
                 jQuery('.woocommerce-product-gallery__wrapper > div:not(.woocommerce-product-gallery)').hide();
                 jQuery('.flex-control-thumbs').hide();
             }
@@ -3531,10 +3531,10 @@ add_action( 'wp_body_open', function() { ?>
 	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TJLJH9NZ"
 	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <?php });
-
+ 
 add_action('admin_init', function () {
     global $pagenow;
-
+    
     if ($pagenow === 'edit-comments.php') {
         wp_safe_redirect(admin_url());
         exit;
@@ -3639,96 +3639,96 @@ function product_in_pre_roll_or_sub($product_id, $target_slug) {
 
 
 // Custom validation
-add_filter('woocommerce_coupon_is_valid', function( $valid, $coupon, $discount ) {
-    if ( strtolower($coupon->get_code()) === 'firsttime1/8' ) {
+// add_filter('woocommerce_coupon_is_valid', function( $valid, $coupon, $discount ) {
+//     if ( strtolower($coupon->get_code()) === 'firsttime1/8' ) {
+        
+//         $free_product_id = 35677;
+//         $min_amount      = 50;
+//         $billing_email   = '';
 
-        $free_product_id = 35677;
-        $min_amount      = 50;
-        $billing_email   = '';
+//         // Get billing email
+//         if ( WC()->cart && WC()->cart->get_customer()->get_billing_email() ) {
+//             $billing_email = WC()->cart->get_customer()->get_billing_email();
+//         } elseif ( is_user_logged_in() ) {
+//             $billing_email = wp_get_current_user()->user_email;
+//         }
 
-        // Get billing email
-        if ( WC()->cart && WC()->cart->get_customer()->get_billing_email() ) {
-            $billing_email = WC()->cart->get_customer()->get_billing_email();
-        } elseif ( is_user_logged_in() ) {
-            $billing_email = wp_get_current_user()->user_email;
-        }
+//         // Store error reason
+//         global $firsttime_coupon_error;
+//         $firsttime_coupon_error = '';
 
-        // Store error reason
-        global $firsttime_coupon_error;
-        $firsttime_coupon_error = '';
+//         // Check existing orders for email
+//         if ( $billing_email ) {
+//             global $wpdb;
+//             $order_exists = $wpdb->get_var( $wpdb->prepare("
+//                 SELECT p.ID
+//                 FROM {$wpdb->posts} p
+//                 INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
+//                 WHERE p.post_type = 'shop_order'
+//                   AND p.post_status IN ('wc-completed','wc-processing')
+//                   AND pm.meta_key = '_billing_email'
+//                   AND pm.meta_value = %s
+//                 LIMIT 1
+//             ", $billing_email ) );
 
-        // Check existing orders for email
-        if ( $billing_email ) {
-            global $wpdb;
-            $order_exists = $wpdb->get_var( $wpdb->prepare("
-                SELECT p.ID
-                FROM {$wpdb->posts} p
-                INNER JOIN {$wpdb->postmeta} pm ON p.ID = pm.post_id
-                WHERE p.post_type = 'shop_order'
-                  AND p.post_status IN ('wc-completed','wc-processing')
-                  AND pm.meta_key = '_billing_email'
-                  AND pm.meta_value = %s
-                LIMIT 1
-            ", $billing_email ) );
+//             if ( $order_exists ) {
+//                 $firsttime_coupon_error = 'Sorry, this coupon is only available for first-time customers.';
+//                 return false;
+//             }
+//         }
 
-            if ( $order_exists ) {
-                $firsttime_coupon_error = 'Sorry, this coupon is only available for first-time customers.';
-                return false;
-            }
-        }
-
-        // Subtotal check excluding free gift
-        $subtotal = 0;
-        foreach ( WC()->cart->get_cart() as $cart_item ) {
-            if ( $cart_item['product_id'] != $free_product_id ) {
-                $subtotal += $cart_item['line_subtotal'];
-            }
-        }
-        if ( $subtotal < $min_amount ) {
-            $firsttime_coupon_error = 'You need at least $50 in products (excluding the free gift) to use this coupon.';
-            return false;
-        }
-    }
-    return $valid;
-}, 10, 3);
+//         // Subtotal check excluding free gift
+//         $subtotal = 0;
+//         foreach ( WC()->cart->get_cart() as $cart_item ) {
+//             if ( $cart_item['product_id'] != $free_product_id ) {
+//                 $subtotal += $cart_item['line_subtotal'];
+//             }
+//         }
+//         if ( $subtotal < $min_amount ) {
+//             $firsttime_coupon_error = 'You need at least $50 in products (excluding the free gift) to use this coupon.';
+//             return false;
+//         }
+//     }
+//     return $valid;
+// }, 10, 3);
 
 
 // Replace Woo’s generic error message
-add_filter('woocommerce_coupon_error', function( $err, $err_code, $coupon ){
-    global $firsttime_coupon_error;
-    if ( strtolower($coupon->get_code()) === 'firsttime1/8' && ! empty($firsttime_coupon_error) ) {
-        return $firsttime_coupon_error;
-    }
-    return $err;
-}, 10, 3);
+// add_filter('woocommerce_coupon_error', function( $err, $err_code, $coupon ){
+//     global $firsttime_coupon_error;
+//     if ( strtolower($coupon->get_code()) === 'firsttime1/8' && ! empty($firsttime_coupon_error) ) {
+//         return $firsttime_coupon_error;
+//     }
+//     return $err;
+// }, 10, 3);
 
 
 
 // Auto-add or remove the free product depending on coupon presence
-add_action('woocommerce_before_calculate_totals', function( $cart ) {
-    if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
+// add_action('woocommerce_before_calculate_totals', function( $cart ) {
+//     if ( is_admin() && ! defined( 'DOING_AJAX' ) ) return;
 
-    $free_product_id = 35677;
-    $coupon_code     = 'FIRSTTIME1/8';
-    $has_coupon      = in_array( strtolower($coupon_code), array_map('strtolower', $cart->get_applied_coupons()) );
-    $found           = false;
+//     $free_product_id = 35677;
+//     $coupon_code     = 'FIRSTTIME1/8';
+//     $has_coupon      = in_array( strtolower($coupon_code), array_map('strtolower', $cart->get_applied_coupons()) );
+//     $found           = false;
 
-    foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
-        if ( $cart_item['product_id'] == $free_product_id ) {
-            $found = true;
-            if ( $has_coupon ) {
-                $cart_item['data']->set_price( 0 ); // Make free
-            } else {
-                $cart->remove_cart_item( $cart_item_key ); // Remove if no coupon
-            }
-        }
-    }
+//     foreach ( $cart->get_cart() as $cart_item_key => $cart_item ) {
+//         if ( $cart_item['product_id'] == $free_product_id ) {
+//             $found = true;
+//             if ( $has_coupon ) {
+//                 $cart_item['data']->set_price( 0 ); // Make free
+//             } else {
+//                 $cart->remove_cart_item( $cart_item_key ); // Remove if no coupon
+//             }
+//         }
+//     }
 
-    // Add free product if coupon is applied and it's not in the cart yet
-    if ( $has_coupon && ! $found ) {
-        $cart->add_to_cart( $free_product_id, 1 );
-    }
-});
+//     // Add free product if coupon is applied and it's not in the cart yet
+//     if ( $has_coupon && ! $found ) {
+//         $cart->add_to_cart( $free_product_id, 1 );
+//     }
+// });
 
 
 add_filter('body_class', 'add_woocommerce_account_body_class');
@@ -3747,17 +3747,17 @@ function overwrite_product_name_with_quantity($item, $cart_item_key, $values, $o
     if (isset($values['wut_sunit'][0]['wut_lbl'])) {
         $custom_meta_value = $values['wut_sunit'][0]['wut_lbl'];
     }
-
+ 
     $product_name = $item->get_name();
     $new_name = $product_name;
-
+ 
     if (!empty($custom_meta_value)) {
         $new_name .= ' - ' . $custom_meta_value;
     }
-
+ 
     $item->set_name($new_name);
 }
-
+ 
 add_filter('woocommerce_add_cart_item_data', 'add_custom_unit_to_cart_item', 10, 3);
 function add_custom_unit_to_cart_item($cart_item_data, $product_id, $variation_id)
 {
@@ -3769,7 +3769,7 @@ function add_custom_unit_to_cart_item($cart_item_data, $product_id, $variation_i
     }
     return $cart_item_data;
 }
-
+ 
 add_filter('woocommerce_cart_item_name', 'custom_product_name_with_unit_label_checkout', 20, 3);
 function custom_product_name_with_unit_label_checkout($product_name, $cart_item, $cart_item_key)
 {
@@ -3779,7 +3779,7 @@ function custom_product_name_with_unit_label_checkout($product_name, $cart_item,
     }
     return $product_name;
 }
-
+ 
 add_filter('woocommerce_get_item_data', 'display_custom_unit_under_name', 10, 2);
 function display_custom_unit_under_name($item_data, $cart_item)
 {
@@ -3856,810 +3856,259 @@ add_filter( 'woocommerce_cross_sells_total', function( $total ) {
 });
 
 
+remove_filter('woocommerce_get_price_html', 'cached_price_filter_function', 10);
+add_filter('woocommerce_get_price_html', function($price, $product) {
+    wc_delete_product_transients( $product->get_id() );
+    $price = wc_price( $product->get_price() ); // get fresh
+    return $price;
+}, 99, 2);
 
 
 
+// ===================== Free product logic =================================
+
+define('FREE_PRODUCT_ID',  [35677, 40082]);
+define('FREE_PRODUCT_THRESHOLD_PRICE', 25);
 
 
-// --- CONFIGURATION ---
-define('FREE_GIFT_PRODUCT_ID', 40082); // Free gift product ID
-define('FREE_GIFT_THRESHOLD', 150);   // Subtotal threshold
+function my_auto_add_free_product_handler( $cart = null ) {
 
-/**
- * Main function to add or remove the free product based on cart subtotal.
- */
-add_action('woocommerce_before_calculate_totals', 'wfg_conditionally_manage_free_product', 20, 1);
-add_action('woocommerce_cart_loaded_from_session', 'wfg_conditionally_manage_free_product', 20, 1);
+    if ( is_admin() && !( defined('DOING_AJAX') && DOING_AJAX ) ) return;
 
-function wfg_conditionally_manage_free_product($cart) {
-    if (is_admin() && !wp_doing_ajax()) {
+    $free_products = (array) FREE_PRODUCT_ID; // ALWAYS ARRAY
+    $target_total  = FREE_PRODUCT_THRESHOLD_PRICE;
+
+    $session = WC()->session;
+    $cart    = $cart ?: WC()->cart;
+    if ( ! $cart ) return;
+
+    $manually_removed = $session->get('manually_removed_gifts') ?: [];
+
+    // $checkout_email = WC()->customer->get_billing_email();
+    // if ( empty($checkout_email) ) {
+    //     $checkout_email = $session->get('wc_checkout_email');
+    // }else{
+	// 	return;
+	// }
+
+    $checkout_email = WC()->customer->get_billing_email();
+
+    if ( empty( $checkout_email ) ) {
+        // No email provided → DO NOT add free items
         return;
     }
 
-    static $is_running = false;
-    if ($is_running) return;
-    $is_running = true;
-
-    $product_id = FREE_GIFT_PRODUCT_ID;
-    $threshold  = FREE_GIFT_THRESHOLD;
-
-    $has_product = false;
-    $product_key = null;
-    $subtotal    = 0;
-
-    foreach ($cart->get_cart() as $key => $item) {
-        if ($item['product_id'] == $product_id) {
-            $has_product = true;
-            $product_key = $key;
-        } else {
-            $subtotal += $item['line_total'] + $item['line_tax'];
+    // If email missing in customer object, try session fallback
+    if ( empty( $checkout_email ) ) {
+        $checkout_email = $session->get('wc_checkout_email');
+        if ( empty($checkout_email) ) {
+            return; // Still no email → exit
         }
     }
 
-    $was_auto_added = $has_product ? ($cart->get_cart()[$product_key]['wfg_auto_added'] ?? false) : false;
 
-    // Check if user manually removed before
-    $user_removed = WC()->session->get('wfg_user_removed') === true;
+    $last_email = $session->get('last_checkout_email');
 
-    // ✅ Add gift if threshold met, not already in cart, and not removed manually
-    if ($subtotal >= $threshold && !$has_product && !$user_removed) {
-        $cart->add_to_cart($product_id, 1, 0, [], ['wfg_auto_added' => true]);
-        WC()->session->set('wfg_banner_trigger', true);
-    }
-    // ❌ Remove gift if threshold not met
-    elseif ($subtotal < $threshold && $has_product && $was_auto_added) {
-        $cart->remove_cart_item($product_key);
-        WC()->session->__unset('wfg_user_removed'); // reset
+    if ( $last_email !== $checkout_email ) {
+        
+        $session->__unset('manually_removed_gifts');
+        $session->set('last_checkout_email', $checkout_email);
+        $manually_removed = []; // reset local cache
     }
 
-    $is_running = false;
+    $is_existing_user = false;
+
+    if ( is_user_logged_in() ) {
+        $is_existing_user = true;
+
+    } elseif ( ! empty( $checkout_email ) ) {
+
+        $user = get_user_by('email', $checkout_email);
+
+        if ( $user ) {
+            $is_existing_user = true;
+
+        } else {
+            $recent_order = wc_get_orders([
+                'limit'        => 1,
+                'billing_email'=> $checkout_email,
+                'orderby'      => 'date',
+                'order'        => 'DESC',
+                'status'       => ['completed','processing','on-hold'],
+            ]);
+
+            if ( ! empty($recent_order) ) {
+                $is_existing_user = true;
+            }
+        }
+    }
+
+    $subtotal = 0;
+
+    foreach ( $cart->get_cart() as $item ) {
+        if ( ! in_array($item['product_id'], $free_products) ) {
+            $subtotal += (float) $item['line_total'];
+        }
+    }
+
+    $free_items_in_cart = [];
+
+    foreach ( $cart->get_cart() as $key => $item ) {
+        if ( in_array($item['product_id'], $free_products) ) {
+            $free_items_in_cart[$item['product_id']] = [
+                'cart_key' => $key,
+                'quantity' => $item['quantity'],
+            ];
+        }
+    }
+
+    // Force quantity of each free product to always be 1
+    foreach ( $free_items_in_cart as $pid => $data ) {
+        if ( $data['quantity'] !== 1 ) {
+            $cart->set_quantity( $data['cart_key'], 1 );
+        }
+    }
+
+    // Force price of each free product to always be 0
+    foreach ( $free_items_in_cart as $pid => $data ) {
+        $cart->cart_contents[ $data['cart_key'] ]['data']->set_price( 0 );
+    }
+
+    if ( $subtotal >= $target_total ) {
+
+        // Existing users DO NOT get free products
+        if ( $is_existing_user ) {
+            foreach ( $free_items_in_cart as $pid => $data ) {
+                $cart->remove_cart_item($data['cart_key']);
+            }
+            $session->__unset('auto_added_gifts');
+            return;
+        }
+
+        // Add free products if not manually removed
+        foreach ( $free_products as $pid ) {
+
+            if ( isset($manually_removed[$pid]) ) {
+                continue; // user manually removed it before
+            }
+
+            if ( ! isset($free_items_in_cart[$pid]) ) {
+                $cart->add_to_cart($pid, 1);
+            }
+        }
+
+        $session->set('auto_added_gifts', true);
+        return;
+    }
+
+
+    if ( $subtotal < $target_total ) {
+
+        // Mark removal as automatic
+        $session->set('auto_removal', true);
+
+        foreach ( $free_items_in_cart as $pid => $data ) {
+            $cart->remove_cart_item($data['cart_key']);
+        }
+
+        // Clear the flag AFTER all removals
+        $session->__unset('auto_removal');
+        $session->__unset('auto_added_gifts');
+    }
 }
+// Hook into cart update and totals lifecycle and also after add-to-cart actions
+add_action( 'woocommerce_before_calculate_totals', 'my_auto_add_free_product_handler', 20 );
+add_action( 'woocommerce_cart_updated', function() { my_auto_add_free_product_handler( WC()->cart ); }, 20 );
+// Run after regular add-to-cart so when user adds products from single product page we immediately evaluate
+add_action( 'woocommerce_add_to_cart', function() { my_auto_add_free_product_handler( WC()->cart ); }, 20 );
 
-/**
- * When user removes the gift manually → mark in session.
- */
-add_action('woocommerce_cart_item_removed', function($cart_item_key, $cart) {
-    $removed_item = $cart->removed_cart_contents[$cart_item_key] ?? null;
-    if ($removed_item && isset($removed_item['wfg_auto_added']) && $removed_item['wfg_auto_added']) {
-        WC()->session->set('wfg_user_removed', true);
+add_action('woocommerce_checkout_update_order_review', 'my_auto_add_free_product_handler');
+
+// Detect manual removal of free products
+add_action('woocommerce_remove_cart_item', function( $cart_item_key, $cart ) {
+
+    $session = WC()->session;
+    $free_products = (array) FREE_PRODUCT_ID;
+
+    // Ignore auto-removals
+    if ( $session->get('auto_removal') ) {
+        return;
     }
+
+    $removed = $cart->removed_cart_contents[$cart_item_key] ?? null;
+    if ( ! $removed ) return;
+
+    $pid = $removed['product_id'];
+
+    // User manually removed a gift
+    if ( in_array($pid, $free_products) ) {
+
+        $manual = $session->get('manually_removed_gifts') ?: [];
+        $manual[$pid] = true;
+
+        $session->set('manually_removed_gifts', $manual);
+    }
+
 }, 10, 2);
 
-/**
- * Make the auto-added free gift price zero.
- */
-add_action('woocommerce_before_calculate_totals', 'wfg_set_free_product_price', 30, 1);
-function wfg_set_free_product_price($cart) {
-    foreach ($cart->get_cart() as $key => $item) {
-        if (isset($item['wfg_auto_added']) && $item['wfg_auto_added']) {
-            $item['data']->set_price(0);
+
+// Define free product IDs
+$FREE_PRODUCT_IDS = [35677, 40082]; // Replace with your product IDs
+
+// Ensure free product price is always 0 in cart totals
+add_action('woocommerce_before_calculate_totals', function($cart) use ($FREE_PRODUCT_IDS) {
+    foreach ($cart->get_cart() as $cart_item) {
+        if (in_array($cart_item['product_id'], $FREE_PRODUCT_IDS)) {
+            $cart_item['data']->set_price(0);
         }
     }
-}
+}, 20);
 
-/**
- * AJAX check for free gift threshold & banner.
- */
-function wfg_ajax_check_cart_threshold() {
-    check_ajax_referer('wfg_nonce', 'nonce');
-
-    if (!WC()->cart) {
-        wp_send_json_error(['message' => 'Cart not available']);
-        return;
+// Lock quantity input in cart page (readonly)
+add_filter('woocommerce_cart_item_quantity', function($qty, $cart_item_key, $cart_item) use ($FREE_PRODUCT_IDS) {
+    if (in_array($cart_item['product_id'], $FREE_PRODUCT_IDS)) {
+        return '<input type="number" value="1" min="1" max="1" readonly style="width:60px;text-align:center;">';
     }
-
-    $show_banner = WC()->session->get('wfg_banner_trigger') === true;
-    if ($show_banner) {
-        WC()->session->__unset('wfg_banner_trigger');
-    }
-
-    $cart_contents_changed = did_action('woocommerce_cart_item_added') > 0 || did_action('woocommerce_cart_item_removed') > 0;
-
-    wp_send_json_success([
-        'cart_updated' => $cart_contents_changed,
-        'show_banner'  => $show_banner,
-    ]);
-}
-add_action('wp_ajax_wfg_check_cart_threshold', 'wfg_ajax_check_cart_threshold');
-add_action('wp_ajax_nopriv_wfg_check_cart_threshold', 'wfg_ajax_check_cart_threshold');
-
-/**
- * Add the slide-in banner HTML to the site's footer.
- */
-add_action('wp_footer', 'wfg_slidein_banner_html');
-function wfg_slidein_banner_html() {
-    ?>
-    <div id="free-gift-banner" style="display:none; position:fixed; right:0; top:25%; background:#f39400; color:#fff; padding:20px 30px; border-radius:8px 0 0 8px; z-index:99999; box-shadow: -4px 4px 10px rgba(0,0,0,0.15); transition: transform 0.4s ease-in-out; transform: translateX(105%); max-width:280px; font-size:16px; line-height:1.4;">
-        🎁 We've added a <strong>FREE gift</strong> to your cart!
-    </div>
-    <?php
-}
-
-/**
- * JavaScript for AJAX check and banner display.
- */
-add_action('wp_footer', 'wfg_cart_popup_script', 100);
-function wfg_cart_popup_script() {
-    if (!is_cart() && !is_checkout() && !is_shop()) return;
-    ?>
-    <script type="text/javascript">
-        jQuery(function($) {
-            let isCheckingCart = false;
-            let debounceTimer;
-
-            function showFreeGiftBanner() {
-                const banner = $('#free-gift-banner');
-                if (banner.is(':visible')) return;
-
-                banner.css('display', 'block');
-                setTimeout(() => banner.css('transform', 'translateX(0)'), 50);
-
-                setTimeout(() => {
-                    banner.css('transform', 'translateX(105%)');
-                    setTimeout(() => banner.css('display', 'none'), 500);
-                }, 5000);
-            }
-
-            function checkCartStatus() {
-                if (isCheckingCart) return;
-                isCheckingCart = true;
-
-                $.post('<?php echo admin_url('admin-ajax.php'); ?>', {
-                    action: 'wfg_check_cart_threshold',
-                    nonce: '<?php echo wp_create_nonce('wfg_nonce'); ?>'
-                })
-                .done(function(response) {
-                    if (!response.success) {
-                        console.error('Free Gift Check Error:', response.data.message);
-                        return;
-                    }
-                    const data = response.data;
-
-                    if (data.show_banner) {
-                        showFreeGiftBanner();
-                    }
-
-                    if (data.cart_updated) {
-                        $(document.body).trigger('wc_fragment_refresh');
-                        $(document.body).trigger('updated_cart_totals');
-                    }
-                })
-                .fail(function() {
-                    console.error('Free Gift: AJAX request failed.');
-                })
-                .always(function() {
-                    isCheckingCart = false;
-                });
-            }
-
-            function debouncedCheck() {
-                clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(checkCartStatus, 800);
-            }
-
-            $(document.body).on('change', '.woocommerce-cart-form .qty', debouncedCheck);
-            $(document.body).on('removed_from_cart', debouncedCheck);
-            $(document.body).on('added_to_cart', debouncedCheck);
-
-            checkCartStatus();
-        });
-    </script>
-    <?php
-}
-
-
-// Add custom columns to all post types (including custom)
-add_filter( 'manage_posts_columns', 'add_last_modified_columns' );
-add_filter( 'manage_pages_columns', 'add_last_modified_columns' );
-function add_last_modified_columns( $columns ) {
-    $columns['last_modified_by']   = __( 'Last Modified By', 'textdomain' );
-    $columns['last_modified_date'] = __( 'Last Modified Date', 'textdomain' );
-    return $columns;
-}
-
-// Fill data for custom columns
-add_action( 'manage_posts_custom_column', 'show_last_modified_columns_data', 10, 2 );
-add_action( 'manage_pages_custom_column', 'show_last_modified_columns_data', 10, 2 );
-function show_last_modified_columns_data( $column, $post_id ) {
-    if ( $column === 'last_modified_by' ) {
-        $last_editor_id = get_post_meta( $post_id, '_edit_last', true );
-        if ( $last_editor_id ) {
-            $user = get_userdata( $last_editor_id );
-            echo $user ? esc_html( $user->display_name ) : __( 'Unknown', 'textdomain' );
-        } else {
-            echo __( '—', 'textdomain' );
-        }
-    }
-
-    if ( $column === 'last_modified_date' ) {
-        $post = get_post( $post_id );
-        if ( $post && $post->post_modified ) {
-            echo esc_html( get_date_from_gmt( $post->post_modified_gmt, 'Y-m-d H:i:s' ) );
-        } else {
-            echo __( '—', 'textdomain' );
-        }
-    }
-}
-
-
-
-
-// ... existing code ...
-// ... existing code ...
-
-// ===================================================================
-// COMPLETE EMAIL ACTIVATION SYSTEM FOR WOOCOMMERCE REGISTRATION
-// ===================================================================
-
-// 1. ACTIVATION META KEY
-define('USER_ACTIVATION_META_KEY', 'user_account_activated');
-
-// 2. CUSTOM USER STATUS
-function add_user_activation_meta($user_id) {
-    // Mark user as inactive by default
-    update_user_meta($user_id, USER_ACTIVATION_META_KEY, '0');
-}
-
-// 3. OVERRIDE WOOCOMMERCE REGISTRATION TO REQUIRE EMAIL ACTIVATION
-add_action('woocommerce_created_customer', 'handle_new_customer_registration', 10, 3);
-
-function handle_new_customer_registration($customer_id, $new_customer_data, $password_generated) {
-    // Skip activation for admin users
-    if (user_can($customer_id, 'administrator')) {
-        update_user_meta($customer_id, USER_ACTIVATION_META_KEY, '1');
-        return;
-    }
-
-    // Mark user as inactive
-    add_user_activation_meta($customer_id);
-
-    // Generate activation key
-    $activation_key = wp_generate_password(32, false);
-    update_user_meta($customer_id, 'activation_key', $activation_key);
-
-    // Send activation email
-    send_activation_email($customer_id, $activation_key);
-
-    // Log out the user immediately
-    wp_logout();
-
-    // Redirect with success message
-    wp_redirect(add_query_arg(array(
-        'account_created' => '1',
-        'activation_sent' => '1'
-    ), wc_get_page_permalink('myaccount')));
-    exit;
-}
-
-// 4. SEND ACTIVATION EMAIL
-function send_activation_email($user_id, $activation_key) {
-    $user = get_userdata($user_id);
-    $user_email = $user->user_email;
-    $user_login = $user->user_login;
-
-    // Create activation link
-    $activation_link = add_query_arg(array(
-        'action' => 'activate_account',
-        'key' => $activation_key,
-        'user' => $user_id
-    ), home_url('/'));
-
-    // Email subject
-    $subject = sprintf(__('[%s] Activate Your Account', 'textdomain'), get_bloginfo('name'));
-
-    // Email message
-    $message = sprintf(__('Hello %s,
-
-Thank you for registering with %s!
-
-To complete your registration and activate your account, please click the link below:
-
-%s
-
-This link will expire in 24 hours.
-
-If you did not register on our site, please ignore this email.
-
-Best regards,
-%s Team', 'textdomain'),
-        $user_login,
-        get_bloginfo('name'),
-        $activation_link,
-        get_bloginfo('name')
-    );
-
-    // Send email
-    wp_mail($user_email, $subject, $message);
-}
-
-// 5. HANDLE ACTIVATION LINK
-add_action('init', 'handle_account_activation');
-
-function handle_account_activation() {
-    if (isset($_GET['action']) && $_GET['action'] === 'activate_account') {
-        $activation_key = sanitize_text_field($_GET['key']);
-        $user_id = intval($_GET['user']);
-
-        if (empty($activation_key) || empty($user_id)) {
-            wp_redirect(add_query_arg('activation', 'invalid', wc_get_page_permalink('myaccount')));
-            exit;
-        }
-
-        // Verify activation key
-        $stored_key = get_user_meta($user_id, 'activation_key', true);
-
-        if ($activation_key !== $stored_key) {
-            wp_redirect(add_query_arg('activation', 'invalid', wc_get_page_permalink('myaccount')));
-            exit;
-        }
-
-        // Check if user is already activated
-        $is_activated = get_user_meta($user_id, USER_ACTIVATION_META_KEY, true);
-        if ($is_activated === '1') {
-            wp_redirect(add_query_arg('activation', 'already_activated', wc_get_page_permalink('myaccount')));
-            exit;
-        }
-
-        // Activate user account
-        update_user_meta($user_id, USER_ACTIVATION_META_KEY, '1');
-        delete_user_meta($user_id, 'activation_key');
-
-        // Log user in
-        wp_set_current_user($user_id);
-        wp_set_auth_cookie($user_id);
-
-        // Redirect with success message
-        wp_redirect(add_query_arg('activation', 'success', wc_get_page_permalink('myaccount')));
-        exit;
-    }
-}
-
-// 6. PREVENT LOGIN FOR INACTIVE USERS (ONLY FOR REGISTRATION FLOW)
-add_filter('authenticate', 'check_user_activation_status', 30, 3);
-
-function check_user_activation_status($user, $username, $password) {
-    // Skip check for admin users
-    if ($user instanceof WP_User && user_can($user, 'administrator')) {
-        return $user;
-    }
-
-    // Only check on login attempts (not registration or other flows)
-    if (is_wp_error($user) || !$user instanceof WP_User) {
-        return $user;
-    }
-
-    $is_activated = get_user_meta($user->ID, USER_ACTIVATION_META_KEY, true);
-
-    // If user is not activated, prevent login
-    if ($is_activated !== '1') {
-        // Generate new activation key if user doesn't have one
-        $activation_key = get_user_meta($user->ID, 'activation_key', true);
-        if (empty($activation_key)) {
-            $activation_key = wp_generate_password(32, false);
-            update_user_meta($user->ID, 'activation_key', $activation_key);
-        }
-
-        // Send new activation email
-        send_activation_email($user->ID, $activation_key);
-
-        return new WP_Error('account_not_activated',
-            __('Your account has not been activated yet. Please check your email for the activation link. We have sent you a new activation email.', 'textdomain')
-        );
-    }
-
-    return $user;
-}
-
-// 7. AJAX RESEND ACTIVATION EMAIL
-add_action('wp_ajax_resend_activation', 'handle_resend_activation');
-add_action('wp_ajax_nopriv_resend_activation', 'handle_resend_activation');
-
-function handle_resend_activation() {
-    // Verify nonce
-    if (!wp_verify_nonce($_POST['nonce'], 'resend_activation_nonce')) {
-        wp_die('Security check failed');
-    }
-
-    $email = sanitize_email($_POST['email']);
-
-    if (empty($email)) {
-        wp_send_json_error('Email address is required');
-    }
-
-    $user = get_user_by('email', $email);
-
-    if (!$user) {
-        wp_send_json_error('No account found with this email address');
-    }
-
-    // Check if user is already activated
-    $is_activated = get_user_meta($user->ID, USER_ACTIVATION_META_KEY, true);
-    if ($is_activated === '1') {
-        wp_send_json_error('Account is already activated');
-    }
-
-    // Generate new activation key
-    $activation_key = wp_generate_password(32, false);
-    update_user_meta($user->ID, 'activation_key', $activation_key);
-
-    // Send activation email
-    send_activation_email($user->ID, $activation_key);
-
-    wp_send_json_success('Activation email sent successfully');
-}
-
-// 8. DISPLAY ACTIVATION MESSAGES
-add_action('wp_footer', 'display_activation_messages');
-
-function display_activation_messages() {
-    if (!is_account_page()) {
-        return;
-    }
-
-    $messages = array();
-
-    // Account created message
-    if (isset($_GET['account_created']) && $_GET['account_created'] === '1') {
-        $messages[] = array(
-            'type' => 'success',
-            'message' => __('Account created successfully! Please check your email to activate your account.', 'textdomain')
-        );
-    }
-
-    // Activation success message
-    if (isset($_GET['activation']) && $_GET['activation'] === 'success') {
-        $messages[] = array(
-            'type' => 'success',
-            'message' => __('Account activated successfully! You are now logged in.', 'textdomain')
-        );
-    }
-
-    // Invalid activation message
-    if (isset($_GET['activation']) && $_GET['activation'] === 'invalid') {
-        $messages[] = array(
-            'type' => 'error',
-            'message' => __('Invalid activation link. Please request a new one.', 'textdomain')
-        );
-    }
-
-    // Already activated message
-    if (isset($_GET['activation']) && $_GET['activation'] === 'already_activated') {
-        $messages[] = array(
-            'type' => 'info',
-            'message' => __('Account is already activated.', 'textdomain')
-        );
-    }
-
-    // Display messages
-    if (!empty($messages)) {
-        echo '<script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var container = document.querySelector(".woocommerce-MyAccount-content") || document.querySelector(".woocommerce-account") || document.body;
-            ';
-
-        foreach ($messages as $msg) {
-            $class = $msg['type'] === 'success' ? 'woocommerce-message-custom' :
-                    ($msg['type'] === 'error' ? 'woocommerce-error' : 'woocommerce-info');
-
-            echo 'var msgDiv = document.createElement("div");
-            msgDiv.className = "' . $class . '";
-            msgDiv.style.cssText = "padding: 10px; margin: 10px 0; border-radius: 4px;";
-            msgDiv.innerHTML = "' . esc_js($msg['message']) . '";
-            container.insertBefore(msgDiv, container.firstChild);';
-        }
-
-        echo '});
-        </script>';
-    }
-}
-
-// 9. ADD RESEND ACTIVATION FORM TO MY ACCOUNT PAGE
-add_action('woocommerce_after_my_account', 'add_resend_activation_form');
-
-function add_resend_activation_form() {
-    // Only show for non-activated users
-    $current_user_id = get_current_user_id();
-    if ($current_user_id === 0) {
-        return;
-    }
-
-    $is_activated = get_user_meta($current_user_id, USER_ACTIVATION_META_KEY, true);
-
-    if ($is_activated !== '1') {
-        ?>
-        <div class="resend-activation-form" style="margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 4px; background: #f9f9f9;">
-            <h3><?php _e('Account Activation Required', 'textdomain'); ?></h3>
-            <p><?php _e('Your account has not been activated yet. Please check your email for the activation link.', 'textdomain'); ?></p>
-            <form id="resend-activation-form">
-                <p>
-                    <label for="resend-email"><?php _e('Email Address:', 'textdomain'); ?></label>
-                    <input type="email" id="resend-email" name="email" value="<?php echo esc_attr(wp_get_current_user()->user_email); ?>" required>
-                </p>
-                <p>
-                    <button type="submit" class="button"><?php _e('Resend Activation Email', 'textdomain'); ?></button>
-                </p>
-                <div id="resend-message" style="margin-top: 10px;"></div>
-            </form>
-        </div>
-
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('resend-activation-form');
-            const messageDiv = document.getElementById('resend-message');
-
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-
-                const email = document.getElementById('resend-email').value;
-
-                if (!email) {
-                    showMessage('Please enter your email address', 'error');
-                    return;
-                }
-
-                const formData = new FormData();
-                formData.append('action', 'resend_activation');
-                formData.append('email', email);
-                formData.append('nonce', '<?php echo wp_create_nonce('resend_activation_nonce'); ?>');
-
-                fetch('<?php echo admin_url('admin-ajax.php'); ?>', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        showMessage(data.data, 'success');
-                    } else {
-                        showMessage(data.data, 'error');
-                    }
-                })
-                .catch(error => {
-                    showMessage('An error occurred. Please try again.', 'error');
-                });
-            });
-
-            function showMessage(message, type) {
-                messageDiv.innerHTML = '<div class="' + (type === 'success' ? 'woocommerce-message-custom' : 'woocommerce-error') + '" style="padding: 10px; margin: 10px 0; border-radius: 4px;">' + message + '</div>';
-            }
-        });
-        </script>
-        <?php
-    }
-}
-
-// 10. CUSTOMIZE WOOCOMMERCE REGISTRATION SUCCESS MESSAGE
-add_filter('woocommerce_registration_redirect', 'custom_registration_redirect');
-
-function custom_registration_redirect($redirect) {
-    return add_query_arg(array(
-        'account_created' => '1'
-    ), wc_get_page_permalink('myaccount'));
-}
-
-// 11. SECURITY: CLEAN UP EXPIRED ACTIVATION KEYS (Run daily)
-add_action('wp', 'cleanup_expired_activation_keys');
-
-function cleanup_expired_activation_keys() {
-    // Only run once per day
-    if (get_transient('activation_cleanup_done')) {
-        return;
-    }
-
-    // Set transient for 24 hours
-    set_transient('activation_cleanup_done', true, DAY_IN_SECONDS);
-
-    // Get users with activation keys older than 24 hours
-    $users = get_users(array(
-        'meta_key' => 'activation_key',
-        'meta_compare' => 'EXISTS'
-    ));
-
-    foreach ($users as $user) {
-        $activation_time = get_user_meta($user->ID, 'activation_key_time', true);
-
-        if ($activation_time && (time() - $activation_time) > DAY_IN_SECONDS) {
-            // Delete expired activation key
-            delete_user_meta($user->ID, 'activation_key');
-            delete_user_meta($user->ID, 'activation_key_time');
-        }
-    }
-}
-
-// 12. ENHANCED PASSWORD STRENGTH REQUIREMENTS
-add_action('woocommerce_register_post', 'enhanced_password_validation', 10, 3);
-
-function enhanced_password_validation($username, $email, $errors) {
-    $password = $_POST['password'];
-
-    if (empty($password)) {
-        $errors->add('password_required', __('Password is required.', 'woocommerce'));
-        return;
-    }
-
-    // Minimum 8 characters
-    if (strlen($password) < 8) {
-        $errors->add('password_length', __('Password must be at least 8 characters long.', 'woocommerce'));
-    }
-
-    // Must contain uppercase letter
-    if (!preg_match('/[A-Z]/', $password)) {
-        $errors->add('password_uppercase', __('Password must contain at least one uppercase letter.', 'woocommerce'));
-    }
-
-    // Must contain lowercase letter
-    if (!preg_match('/[a-z]/', $password)) {
-        $errors->add('password_lowercase', __('Password must contain at least one lowercase letter.', 'woocommerce'));
-    }
-
-    // Must contain number
-    if (!preg_match('/[0-9]/', $password)) {
-        $errors->add('password_number', __('Password must contain at least one number.', 'woocommerce'));
-    }
-
-    // Must contain special character
-    if (!preg_match('/[^A-Za-z0-9]/', $password)) {
-        $errors->add('password_special', __('Password must contain at least one special character.', 'woocommerce'));
-    }
-}
-
-// 13. ADMIN NOTIFICATION FOR NEW REGISTRATIONS
-add_action('woocommerce_created_customer', 'notify_admin_new_registration', 20, 3);
-
-function notify_admin_new_registration($customer_id, $new_customer_data, $password_generated) {
-    $user = get_userdata($customer_id);
-    $admin_email = get_option('admin_email');
-
-    $subject = sprintf(__('[%s] New User Registration', 'textdomain'), get_bloginfo('name'));
-    $message = sprintf(__('A new user has registered on %s:
-
-Username: %s
-Email: %s
-Name: %s %s
-Registration Date: %s
-
-Please review the user account in your WordPress admin.', 'textdomain'),
-        get_bloginfo('name'),
-        $user->user_login,
-        $user->user_email,
-        $user->first_name,
-        $user->last_name,
-        date('Y-m-d H:i:s')
-    );
-
-    wp_mail($admin_email, $subject, $message);
-}
-
-// 14. ACTIVATION EMAIL TEMPLATE CUSTOMIZATION
-add_filter('wp_mail_content_type', 'set_html_content_type');
-
-function set_html_content_type() {
-    return 'text/html';
-}
-
-// Customize activation email template
-function custom_activation_email_template($user_id, $activation_key) {
-    $user = get_userdata($user_id);
-    $user_email = $user->user_email;
-    $user_login = $user->user_login;
-    $site_name = get_bloginfo('name');
-    $site_url = home_url('/');
-
-    $activation_link = add_query_arg(array(
-        'action' => 'activate_account',
-        'key' => $activation_key,
-        'user' => $user_id
-    ), home_url('/'));
-
-    $subject = sprintf(__('[%s] Activate Your Account', 'textdomain'), $site_name);
-
-    $message = '
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>' . esc_html($subject) . '</title>
-        <style>
-            body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-            .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-            .header { background: #f8f9fa; padding: 20px; text-align: center; border-radius: 5px 5px 0 0; }
-            .content { background: #ffffff; padding: 30px; border: 1px solid #ddd; }
-            .footer { background: #f8f9fa; padding: 20px; text-align: center; border-radius: 0 0 5px 5px; }
-            .button { display: inline-block; padding: 12px 24px; background: #007cba; color: white; text-decoration: none; border-radius: 4px; margin: 20px 0; }
-            .button:hover { background: #005a87; }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>' . esc_html($site_name) . '</h1>
-            </div>
-            <div class="content">
-                <h2>Welcome, ' . esc_html($user_login) . '!</h2>
-                <p>Thank you for registering with ' . esc_html($site_name) . '!</p>
-                <p>To complete your registration and activate your account, please click the button below:</p>
-                <p style="text-align: center;">
-                    <a href="' . esc_url($activation_link) . '" class="button">Activate My Account</a>
-                </p>
-                <p><strong>Important:</strong> This activation link will expire in 24 hours.</p>
-                <p>If you did not register on our site, please ignore this email.</p>
-                <hr>
-                <p><small>If the button above doesn\'t work, copy and paste this link into your browser:</small><br>
-                <a href="' . esc_url($activation_link) . '">' . esc_url($activation_link) . '</a></p>
-            </div>
-            <div class="footer">
-                <p>Best regards,<br>' . esc_html($site_name) . ' Team</p>
-                <p><small>This is an automated message. Please do not reply to this email.</small></p>
-            </div>
-        </div>
-    </body>
-    </html>';
-
-    return array('subject' => $subject, 'message' => $message);
-}
-
-// 15. SECURITY: RATE LIMITING FOR RESEND ACTIVATION
-add_action('wp_ajax_resend_activation', 'check_resend_rate_limit', 5);
-add_action('wp_ajax_nopriv_resend_activation', 'check_resend_rate_limit', 5);
-
-function check_resend_rate_limit() {
-    $email = sanitize_email($_POST['email']);
-    $ip = $_SERVER['REMOTE_ADDR'];
-
-    $key = 'resend_activation_' . md5($email . $ip);
-    $attempts = get_transient($key);
-
-    if ($attempts >= 3) {
-        wp_send_json_error('Too many requests. Please try again later.');
-    }
-
-    set_transient($key, ($attempts + 1), HOUR_IN_SECONDS);
-}
-
-// 16. LOG ACTIVATION EVENTS FOR SECURITY
-function log_activation_event($user_id, $event_type, $details = '') {
-    $log_entry = array(
-        'timestamp' => current_time('mysql'),
-        'user_id' => $user_id,
-        'event_type' => $event_type,
-        'ip_address' => $_SERVER['REMOTE_ADDR'],
-        'user_agent' => $_SERVER['HTTP_USER_AGENT'],
-        'details' => $details
-    );
-
-    $logs = get_option('activation_logs', array());
-    $logs[] = $log_entry;
-
-    // Keep only last 1000 entries
-    if (count($logs) > 1000) {
-        $logs = array_slice($logs, -1000);
-    }
-
-    update_option('activation_logs', $logs);
-}
-
-// Log registration events
-add_action('woocommerce_created_customer', function($customer_id, $new_customer_data, $password_generated) {
-    log_activation_event($customer_id, 'registration', 'New user registered');
-}, 25, 3);
-
-// Log activation events
-add_action('init', function() {
-    if (isset($_GET['action']) && $_GET['action'] === 'activate_account') {
-        $user_id = intval($_GET['user']);
-        if ($user_id > 0) {
-            log_activation_event($user_id, 'activation_attempt', 'User attempted activation');
+    return $qty;
+}, 10, 3);
+
+add_action('woocommerce_before_calculate_totals', function( $cart ) {
+
+    if ( is_admin() && ! defined('DOING_AJAX') ) return;
+
+    $free_product_id = 35677;
+
+    foreach ( $cart->get_cart() as $key => $item ) {
+
+        if ( $item['product_id'] == $free_product_id ) {
+
+            // Always force fixed unit 1/8 OZ (index 0)
+            $item['wut_radio_unit'] = 0;
+
+            $item['wut_sunit'] = [
+                0 => [
+                    'wut_select_unit'   => 0,
+                    'wut_uh'            => 233,
+                    'wut_lbl'           => '1/8 OZ',
+                    'wut_selected_rate' => '0.1250',
+                    'wut_selected_from' => 'oz',
+                    'wut_selected_to'   => 'oz',
+                    'purchase_unit'     => 1,
+                    'wut_conv_rate'     => 1,
+                    'wut_is_global'     => 0,
+                    'wut_price_by'      => '_wut_from_unit',
+                    'wut_price_per_unit'=> 35,
+                    'wut_unt_price'     => '35.0000',
+                    'wut_product_price' => 35,
+                ]
+            ];
+
+            // Write back into cart
+            WC()->cart->cart_contents[ $key ] = $item;
         }
     }
 });
 
-// ===================================================================
-// END EMAIL ACTIVATION SYSTEM
-// ===================================================================
-add_action('admin_init', function() {
-    // Delete old plugin update data
-    delete_site_transient('update_plugins');
-    // Force a new update check
-    wp_update_plugins();
-    echo '<div class="notice notice-success"><p><strong>✅ Plugin update check forced successfully. Refresh Plugins page.</strong></p></div>';
-});
+
+
+

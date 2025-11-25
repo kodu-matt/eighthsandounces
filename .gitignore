@@ -1,0 +1,45 @@
+# Ignore everything by default
+ 
+/*
+# But do not ignore .gitignore itself
+!.gitignore
+!.README.md
+# Do not ignore wp-content folder itself
+ 
+!wp-content/
+ 
+# Ignore everything inside wp-content
+ 
+wp-content/*
+ 
+# Except themes/twentytwentyfour-child folder and its contents
+ 
+!wp-content/themes/
+!wp-content/plugins/
+ 
+
+# Ignore all other Plugin
+
+wp-content/plugins/*
+
+!wp-content/plugins/product-video-gallery-for-woo/
+!wp-content/plugins/product-video-gallery-for-woo/**
+
+!wp-content/plugins/woounits/
+!wp-content/plugins/woounits/**
+
+!wp-content/plugins/zoho-crm-integration/
+!wp-content/plugins/zoho-crm-integration/**
+
+# Ignore all other themes
+
+wp-content/themes/*
+ 
+!wp-content/themes/twentytwentyfour-child/
+!wp-content/themes/twentytwentyfour-child/**
+
+# Ignore specific files inside wp-content
+ 
+/wp-content/debug.log
+ 
+/wp-content/index.php
