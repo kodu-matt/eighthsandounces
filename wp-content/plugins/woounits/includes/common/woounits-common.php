@@ -53,47 +53,69 @@ class WooUnits_Common {
         return ( $query->have_posts() ) ? $query->posts : array();
     }
 
-    /**
-     * Calculate from to to unit Rate|Value|Formila.
-     * 
-     * @param  string  $from from unit
-     * @param  string  $to to unit
-     * @param  string  $return Default rate
-     * @param  string  $amount Default 1
-     * @return mixed   $return (rate|value|formula)
-	 * @since 1.0.0
-     */
-	public static function wut_calc_from_to_to_units($from, $to, $return = 'rate', $amount = 1) {
-		$conversion_table = self::wut_get_all_conv_units();
-		$conversion_key = strtolower($from . '_to_' . $to);
-		$rev_conv_key = strtolower($to . '_to_' . $from);
+   /**
+ * Calculate conversion from one unit to another.
+ *
+ * @param string $from   From unit.
+ * @param string $to     To unit.
+ * @param string $return What to return: 'rate', 'value', 'formula'.
+ * @param float  $amount Amount to convert (default 1).
+ * @return mixed Conversion rate, value, or formula.
+ * @since 1.0.0
+ */
+public static function wut_calc_from_to_to_units($from, $to, $return = 'rate', $amount = 1) {
+    $conversion_table = self::wut_get_all_conv_units();
+    $conversion_key   = strtolower($from . '_to_' . $to);
+    $rev_conv_key     = strtolower($to . '_to_' . $from);
 
-		// Check for direct or reverse conversion
-		if (isset($conversion_table[$conversion_key])) {
-			$rate = apply_filters('woounits_rate_' . $conversion_key, $conversion_table[$conversion_key][1] ?? 1);
-			$value = apply_filters('woounits_calc_formula', $amount / $rate, $amount, $rate);
-		} elseif (isset($conversion_table[$rev_conv_key])) {
-			$rate = apply_filters('woounits_rate_' . $rev_conv_key, $conversion_table[$rev_conv_key][1] ?? 1);
-			$value = apply_filters('woounits_calc_formula', $amount * $rate, $amount, $rate);
-		} else {
-			$rate = 1;
-			$value = apply_filters('woounits_calc_formula', $amount * $rate, $amount, $rate);
-		}
+    // Ensure amount is numeric
+    $amount = floatval($amount);
+   	$rate = 1;
+   	
+// 			if ( 0 === $rate ) {
+// 				$rate = 1;
+// 			}
 
-		// Format conversion formula
-		$formula = sprintf('%s %s = %s %s', $amount, ucfirst($from), $value, ucfirst($to));
-		$formula = apply_filters('woounits_calc_display_formula', $formula, $amount, $from, $value, $to);
+    $value = $amount;
 
-		// Return based on requested format
-		switch ($return) {
-			case 'formula':
-				return $formula;
-			case 'value':
-				return $value;
-			default:
-				return $rate;
-		}		
-	}
+    // Check for direct conversion
+    if (isset($conversion_table[$conversion_key])) {
+        $rate = floatval($conversion_table[$conversion_key][1] ?? 1);
+        if ($rate != 0) {
+            $value = $amount / $rate;
+        } else {
+            $value = 0; // prevent division by zero
+        }
+        $rate = apply_filters('woounits_rate_' . $conversion_key, $rate);
+        $value = apply_filters('woounits_calc_formula', $value, $amount, $rate);
+
+    // Check for reverse conversion
+    } elseif (isset($conversion_table[$rev_conv_key])) {
+        $rate = floatval($conversion_table[$rev_conv_key][1] ?? 1);
+        $value = $amount * $rate;
+        $rate = apply_filters('woounits_rate_' . $rev_conv_key, $rate);
+        $value = apply_filters('woounits_calc_formula', $value, $amount, $rate);
+    } else {
+        // fallback if no conversion found
+        $rate  = 1;
+        $value = $amount * $rate;
+        $value = apply_filters('woounits_calc_formula', $value, $amount, $rate);
+    }
+
+    // Prepare formula string
+    $formula = sprintf('%s %s = %s %s', $amount, ucfirst($from), $value, ucfirst($to));
+    $formula = apply_filters('woounits_calc_display_formula', $formula, $amount, $from, $value, $to);
+
+    // Return requested type
+    switch ($return) {
+        case 'formula':
+            return $formula;
+        case 'value':
+            return $value;
+        default:
+            return $rate;
+    }
+}
 
 	public static function wut_calc_from_to_to_units1111($from, $to, $return = 'rate', $amount = 1) {
 		$conversion_table = self::wut_get_all_conv_units();

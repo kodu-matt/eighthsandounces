@@ -1,0 +1,1852 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: CRM Integration For Zoho 3.3.0\n"
+"POT-Creation-Date: 2025-02-04 18:07+0530\n"
+"PO-Revision-Date: 2022-08-29 18:12+0530\n"
+"Last-Translator: \n"
+"Language-Team: Nebulastores\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n;_x;_ex;_nx;esc_attr__;esc_attr_e;esc_attr_x;"
+"esc_html;esc_html__;esc_html_e;esc_html_x;_n_noop;_nx_noop;esc_textarea;"
+"translate_nooped_plural\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:197
+#: admin/class-woo-crm-integration-for-zoho-admin.php:265
+msgid "Back to feeds"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:201
+msgid "Attempt to disconnect Account! Are you sure?"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:202
+#: admin/partials/templates/accounts-tab.php:74
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:51
+msgid "Disconnect"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:203
+msgid "Cancel"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:204
+msgid "Disconnecting..."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:207
+msgid "Please choose one way from below options to sync data"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:208
+msgid "Instant"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:209
+msgid "In Background"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:210
+msgid "Syncing..."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:214
+msgid ""
+"Your have more than 1000 entries to be synced. We recommend you to skip for "
+"now. Please click on Initiate Sync to continue with the sync."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:215
+msgid "Initiate Sync"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:216
+msgid "Skip"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:217
+msgid "Skipping..."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:218
+msgid "Attention Required"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:219
+msgid "Before syncing, please update the existing keys to WCIZ."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:220
+msgid "Update keys"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:223
+#: admin/partials/templates/authorisation-screen.php:85
+msgid "Authorize"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:224
+msgid "Sign in & Authorize"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:227
+msgid "True"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:228
+msgid "False"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:230
+msgid "An error occured!"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:231
+msgid "If no date is selected, all data will be synced."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:267
+msgid "Internal server error"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:393
+msgid "WCIZ CF7 Integration with ZOHO CRM"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:517
+#: admin/class-woo-crm-integration-for-zoho-admin.php:552
+msgid "Security check failed, missing state parameter!"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:522
+#: admin/class-woo-crm-integration-for-zoho-admin.php:557
+msgid "Security check failed, state not verified!!"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:533
+#: admin/class-woo-crm-integration-for-zoho-admin.php:568
+msgid "Confirm your login details!"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:689
+msgid "Synchronize Large Datasets Efficiently"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:690
+msgid "Easily sync all WooCommerce data to your CRM with one click."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:692
+msgid "Bulk Objects"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:699
+#: admin/class-woo-crm-integration-for-zoho-admin.php:702
+msgid "One Click Synchronization"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:700
+msgid ""
+"Sync all new or failed WooCommerce objects to the CRM with one click."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:763
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2467
+msgid "Dashboard"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:764
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2471
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:50
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:66
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:86
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:102
+msgid "Feeds"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:765
+msgid "Data Sync"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:766
+msgid "Abandoned Carts"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:767
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2472
+msgid "Logs"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:768
+#: crm-integration-for-zoho.php:157
+msgid "Settings"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:769
+#: admin/partials/templates/accounts-tab.php:109
+#: crm-integration-for-zoho.php:185
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:32
+msgid "Support"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:781
+msgid "Link your Zoho CRM account."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:786
+msgid "Use Global App"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:794
+msgid "Client ID"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:802
+msgid "Secret ID"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:810
+msgid "Zoho Domain"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:819
+msgid "Redirect Uri"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:922
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2594
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1714
+msgid "Field Type"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:924
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1716
+msgid "Standard Fields"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:925
+#: admin/class-woo-crm-integration-for-zoho-admin.php:934
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2602
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2625
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1717
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1726
+msgid "Custom Value"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:929
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2608
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1721
+msgid "Field Value"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:968
+msgid "Instant sync"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:973
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1133
+msgid "Instantly sync data in real time based on feed events."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:977
+msgid "Background sync"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:982
+msgid "Enable background sync to automatically sync data every 5 minutes."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:982
+msgid ""
+"Use either background sync or instant sync, but not both."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:986
+msgid "Woo sync logging"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:991
+msgid "Enable logging to monitor synced data status."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:995
+msgid "Delete log after x days"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1000
+msgid ""
+"Set the number of days before log entries are deleted from the database."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1004
+msgid "Wipe data on disconnect"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1009
+msgid "Allows deleting sync history when disconnecting the account."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1021
+msgid "Synchronize product stock in WooCommerce"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1026
+msgid ""
+"Sync WooCommerce stock with Zoho updates."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1030
+msgid "Synchronize order status in WooCommerce"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1035
+msgid "Sync WooCommerce order status with Zoho updates."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1039
+msgid "Data log"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1044
+msgid ""
+"Enable log creation to track order status and stock updates in WooCommerce."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1048
+msgid "Reduce the stock quantity of product when an order placed"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1053
+msgid ""
+"Enable this to decrease product count in Zoho CRM when a WooCommerce order is placed."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1057
+msgid "Sync coupon discount in line items"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1062
+msgid "Enable this option to synchronize coupon amounts with each line item."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1066
+msgid ""
+"Sync coupon discount in both, line items as well in parallel to subtotal"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1071
+msgid ""
+"Enable this option to sync coupon amounts with each line item and the subtotal field."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1075
+msgid "Product deletion from WooCommerce to Zoho"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1080
+msgid ""
+"Enable this option to auto-delete products from Zoho when removed from "
+"WooCommerce. Products will be marked as inactive or active in Zoho when "
+"moved to trash or restored in WooCommerce."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1084
+msgid "Product deletion from Zoho to WooCommerce"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1089
+msgid ""
+"Enable to auto-delete WooCommerce products when removed from Zoho."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1093
+msgid "Product syncing from Zoho to WooCommerce"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1098
+msgid ""
+"Enable this option to auto-sync Zoho products to WooCommerce on any update."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1102
+msgid "Product creation from Zoho to WooCommerce"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1107
+msgid ""
+"Enable this option to auto-sync Zoho products with WooCommerce for new and existing items."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1128
+msgid "Abandoned cart synchronization"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1137
+msgid "Cart countdown timer (in minutes)"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1142
+msgid "Set the number of minutes before the cart is abandoned."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1151
+msgid "Set the number of days before abandoned cart data is deleted."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1146
+msgid "Automatically delete data after (days)"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1151
+msgid ""
+"Enter number of days after which abandoned cart data will be deleted from "
+"database."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1155
+msgid "Save the cart HTML in an encoded format"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1160
+msgid "Allows saving the cart HTML in an encoded format."
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1302
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1307
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1312
+msgid "Once every 5 minutes"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:1785
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:107
+msgid "Choose option"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2406
+msgid "nav-tab-active"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2557
+msgid "API Name : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2561
+msgid "Type : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2566
+msgid "Length : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2572
+msgid "Options : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2574
+msgid " = "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2580
+msgid "Field : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2585
+msgid "Required Field"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2597
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2610
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2629
+#: woo-crm-fw/templates/meta-boxes/add-new-field-cf7.php:28
+#: woo-crm-fw/templates/meta-boxes/primary-field-cf7.php:28
+msgid "Select an Option"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2599
+msgid "Standard Value"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2730
+msgid "publish"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2734
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:66
+msgid "Form : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2738
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:70
+msgid "Object : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2742
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:74
+msgid "Primary Key : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2746
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:78
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:55
+msgid "Conditions : "
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2747
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:79
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:56
+msgid "Applied"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2747
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:56
+msgid "yes"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2751
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:84
+msgid "Edit feed"
+msgstr ""
+
+#: admin/class-woo-crm-integration-for-zoho-admin.php:2754
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:88
+msgid "Trash feed"
+msgstr ""
+
+#: admin/partials/woo-crm-integration-for-zoho-admin-display.php:21
+#: admin/partials/templates/accounts-tab.php:43
+msgid "CRM Integration for Zoho"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:24
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:54
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:60
+msgid "Zoho"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:27
+#: woo-crm-fw/templates/meta-boxes/header.php:26
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:26
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:24
+msgid "CF7"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:43
+msgid "Connection Status"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:47
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:21
+msgid "Connected"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:58
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:31
+msgid "Access token has been expired."
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:62
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:364
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:35
+#, php-format
+msgid "The access token expires in %s minutes."
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:67
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:42
+msgid "Refresh Access Token"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:73
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:48
+msgid "Reauthorize"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:86
+#: admin/partials/templates/accounts-tab.php:98
+msgid "Synced Contact Forms"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:88
+msgid "0"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:92
+msgid ""
+"Total number of Contact Form 7 submission successfully synchronized over "
+"ZOHO CRM."
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:93
+msgid "View log"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:106
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:18
+msgid "Need help? Visit our documentation."
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:107
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:22
+msgid "Documentation"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:108
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:28
+msgid "Having trouble? Submit a support ticket."
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:110
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:38
+msgid "For a custom solution, reach out to us!"
+msgstr ""
+
+#: admin/partials/templates/accounts-tab.php:111
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-about-list.php:42
+msgid "Connect"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:24
+msgid "Initialize Connection"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:27
+#: admin/partials/templates/authorisation-screen.php:129
+#: admin/partials/templates/authorisation-screen.php:159
+msgid "Build Feeds"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:30
+msgid "Finalized"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:39
+msgid "Integrate Zoho with WooCommerce for CRM, inventory management, and automation. Sync customer data, orders, and stock levels seamlessly. Automate workflows for better efficiency."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:48
+msgid ""
+"Easily sync WooCommerce data with Zoho CRM. Automatically create Contacts, "
+"Deals, Sales Orders, and Products based on WooCommerce orders. Products are mapped "
+"to Sales Orders in Zoho CRM.\n"
+"Improve workflow efficiency by integrating WooCommerce orders directly into Zoho CRM. "
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:56
+msgid "Integrate Zoho CRM with WooCommerce."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:59
+msgid "Generate feeds for Contacts, Products, Deals, and Orders."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:62
+msgid "Synchronize your data with Zoho CRM."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:69
+msgid "Link your Account"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:91
+msgid "Don’t have an account?"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:95
+msgid "Free Account Registration"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:99
+msgid "Find your Client/Secret ID here."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:103
+msgid "Get API Keys"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:106
+msgid "App setup instructions."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:108
+msgid "View Details"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:114
+msgid "Authentication successful. Proceed to the next step."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:117
+#: admin/partials/templates/authorisation-screen.php:170
+#: admin/partials/templates/authorisation-screen.php:216
+#: admin/partials/templates/authorisation-screen.php:249
+msgid "Move to the next"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:135
+msgid ""
+"You’ve successfully connected WooCommerce to Zoho CRM. Now, "
+"create feeds to map and send data to Zoho CRM."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:140
+msgid "We create four default feeds to sync WooCommerce data with Zoho CRM."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:145
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:1009
+msgid "View your default contact feed."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:148
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:1003
+msgid "View your default product feed."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:151
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:1015
+msgid "View your primary deals feed."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:154
+msgid "View your standard order feed."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:183
+msgid ""
+"Add abandoned cart object and custom fields in Zoho CRM. "
+"Create feed in the plugin for the abandoned cart object."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:188
+msgid "Create an abandoned cart object."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:191
+msgid "Create an abandoned cart object fields."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:194
+msgid "Create a feed for abandoned carts."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:197
+msgid "Map default fields mapping"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:202
+msgid "Create an object with fields and a feed"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:205
+msgid "Skip"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:230
+msgid ""
+"Sync all products on your site to prevent issues with order and deal synchronization."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:235
+msgid "Sync all products"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:238
+msgid "Skip syncing"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:262
+msgid ""
+"Congratulations! The Woo CRM Integration for Zoho plugin has been set up successfully!"
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:273
+msgid "You can now access the dashboard and sync the data."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:278
+msgid ""
+"Review all created feeds and their mappings. Adjust them as needed."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:281
+msgid ""
+"Enable instant or background sync in settings to start syncing data."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:284
+msgid "Use the bulk sync feature in the Data Sync tab to sync historical data."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:287
+msgid ""
+"If your data is missing in Zoho CRM, check the logs for errors."
+msgstr ""
+
+#: admin/partials/templates/authorisation-screen.php:292
+msgid "Access Dashboard"
+msgstr ""
+
+#: crm-integration-for-zoho.php:181 crm-integration-for-zoho.php:182
+#: crm-integration-for-zoho.php:184 crm-integration-for-zoho.php:185
+#: crm-integration-for-zoho.php:186
+msgid "Plugin Additional Links"
+msgstr ""
+
+#: crm-integration-for-zoho.php:181
+msgid "Visit Plugin Site"
+msgstr ""
+
+#: crm-integration-for-zoho.php:182
+msgid "Docs"
+msgstr ""
+
+#: crm-integration-for-zoho.php:183
+msgid "Plugin Demo"
+msgstr ""
+
+#: crm-integration-for-zoho.php:183
+msgid "Demo"
+msgstr ""
+
+#: crm-integration-for-zoho.php:184
+msgid "Video"
+msgstr ""
+
+#: crm-integration-for-zoho.php:186
+msgid "Services"
+msgstr ""
+
+#: crm-integration-for-zoho.php:290
+msgid "WooCommerce"
+msgstr ""
+
+#: crm-integration-for-zoho.php:290
+msgid " is not activated, Please activate WooCommerce first to activate "
+msgstr ""
+
+#: crm-integration-for-zoho.php:290
+msgid "CRM Integration For Zoho"
+msgstr ""
+
+#: crm-integration-for-zoho.php:290
+msgid "."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:266
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:360
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:135
+msgid "Something went wrong! Check your credentials and authorize again"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:367
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:87
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:145
+msgid "Success"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:383
+msgid "Something went wrong !"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:415
+#, php-format
+msgid "%s feed created."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:424
+#, php-format
+msgid "%s feed already exists."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:758
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:797
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:470
+msgid "No log data available"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:842
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:910
+msgid "Required data not found."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:884
+msgid "Sync Completed. Check Logs for verification."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:944
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:950
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:958
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:969
+msgid "Data deleted successfully..!"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:953
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:961
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:972
+msgid "Something went wrong..!"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:965
+msgid "Data related to this feed does not exists."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:993
+msgid "Something went wrong !!"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1014
+msgid "No data found. Seems everything is up to date"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1185
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1230
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:105
+msgid "Something went wrong!!"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1235
+msgid "Shipping"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1238
+msgid "This product is created to capture shipping cost of an order."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1264
+msgid "Product created"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1283
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:290
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:314
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:351
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:436
+msgid "Somthing went wrong, Refresh and try again."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1386
+msgid "No data synced..."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1416
+msgid "Name"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1416
+msgid "Qty"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1416
+msgid "Price"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1452
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:77
+msgid "Cart Total"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1628
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1645
+msgid "Abandoned cart object and fields created; abandoned cart feed generated."
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-ajax.php:1634
+msgid ""
+"Abandoned cart object & fields created and Abandoned cart feed already exists"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:51
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:87
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:49
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:65
+msgid "Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:52
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:88
+msgid "Crm Feeds"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:53
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:89
+msgid "Parent Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:54
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:90
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:31
+msgid "All Feeds"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:55
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:91
+msgid "View Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:56
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:92
+msgid "Add New Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:57
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:93
+msgid "Add New"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:58
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:94
+msgid "Edit Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:59
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:95
+msgid "Update Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:60
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:96
+msgid "Search Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:61
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:97
+msgid "Not Found"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:62
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:98
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:67
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:103
+msgid "Feeds for crm"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:129
+msgid "Feed Details"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:138
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:156
+msgid "Conditional Statements"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:147
+msgid "Feed details"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:173
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:182
+msgid "Zoho Manual Sync"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:191
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:200
+msgid "Zoho Feeds"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:209
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:218
+msgid "Reset Zoho Feed Ids"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:922
+msgid "New order is created"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:923
+msgid "Order is created and updated"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:927
+msgid "Order Status Change"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:928
+msgid "Product Updated/Created"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:929
+msgid "WP User Updated/Created"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:930
+msgid "Send Manually"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:933
+msgid "Subscription is created"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:934
+msgid "Subscription Status Change"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:935
+msgid "Subscription Updated"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:939
+msgid "Membership is saved"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:951
+#, php-format
+msgid "After %s"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-cpt.php:1021
+msgid "Default Sales Order Feed"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:240
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2815
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2928
+msgid "Matches exactly"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:241
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2816
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2929
+msgid "Does not match exactly"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:242
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2817
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2930
+msgid "Contains (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:243
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2818
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2931
+msgid "Does not contain (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:244
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2819
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2932
+msgid "Exist in (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:245
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2820
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2933
+msgid "Does not Exists in (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:246
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2821
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2934
+msgid "Starts with (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:247
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2822
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2935
+msgid "Does not start with (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:248
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2823
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2936
+msgid "Ends with (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:249
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2824
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2937
+msgid "Does not end with (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:250
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2825
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2938
+msgid "Less than (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:251
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2826
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2939
+msgid "Greater than (Text)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:252
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2827
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2940
+msgid "Less than (Date/Time)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:253
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2828
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2941
+msgid "Greater than (Date/Time)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:254
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2829
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2942
+msgid "Equals (Date/Time)"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:255
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2830
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2943
+msgid "Is empty"
+msgstr ""
+
+#: includes/class-woo-crm-integration-for-zoho-fw.php:256
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2831
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2944
+msgid "Is not empty"
+msgstr ""
+
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:141
+#, php-format
+msgid "The access token expires in : %s minute(s)"
+msgstr ""
+
+#: includes/class-cf7-woo-crm-integration-with-zoho-ajax-handler.php:545
+msgid "Invalid form"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/add-new-field-cf7.php:22
+#: woo-crm-fw/templates/meta-boxes/add-new-field.php:22
+msgid "Add New Field"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/add-new-field-cf7.php:47
+#: woo-crm-fw/templates/meta-boxes/add-new-field.php:28
+msgid "Add Field"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/add-product-image.php:22
+msgid "Product Image"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/add-product-image.php:27
+msgid "Add Product Image to Product"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/add-product-image.php:31
+#: woo-crm-fw/templates/meta-boxes/select-if-crm-feed.php:31
+msgid ""
+"Enabling this option may be slow down your bulk syncing process, keep it "
+"only when you need to sync new product images."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/header.php:23
+msgid "Keap"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition-cf7.php:22
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition.php:22
+msgid "Condition Filter"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition-cf7.php:33
+msgid "Enable to add Conditional filters on form submission"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition-cf7.php:50
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition.php:48
+msgid "Add \"AND\" filter"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition-cf7.php:52
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition.php:50
+msgid "Trash"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition-cf7.php:58
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition.php:56
+msgid "Add \"OR\" filter"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/opt-in-condition.php:32
+msgid "Enable to add Conditional filters on data syncing."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/order-meta-box-woo-data-delete.php:30
+msgid "Delete meta keys"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/order-meta-box.php:31
+msgid "Sync manually"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/order-status-mapping.php:22
+msgid "Map Woo Order Statuses"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/primary-field-cf7.php:22
+#: woo-crm-fw/templates/meta-boxes/primary-field.php:22
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:51
+msgid "Primary Field"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/primary-field-cf7.php:48
+msgid ""
+"Please select a field which should be used as \"primary key\" to update an "
+"existing record. \n"
+"\t\t\t\t\t\tIn case of duplicate records"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/primary-field.php:27
+msgid "Select Primary Field"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/primary-field.php:31
+#: woo-crm-fw/templates/meta-boxes/select-cf7-crm-form.php:42
+msgid ""
+"Please select a field which should be used as \"primary key\" to update an "
+"existing record."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/primary-field.php:36
+msgid ""
+"Make sure \"Do not allow duplicate values\" is checked in property settings, "
+"in order to prevent duplicate record creation."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:22
+msgid "Product / Shipping Details"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:27
+msgid "Add Order line item as product"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:31
+msgid "Add shipping as line item"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:35
+msgid "Shipping Product"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:37
+msgid "Create Product"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:42
+#, php-format
+msgid "Created ( Id : %s )"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:44
+msgid "Update"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:48
+msgid "Shipping Amount"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:51
+msgid "Order Shipping Total"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/product-details.php:54
+msgid "Order Shipping Total + Shipping Tax"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-cf7-crm-form.php:24
+msgid "Crm Form"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-cf7-crm-form.php:29
+msgid "Select CF7 From"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-cf7-crm-form.php:31
+#: woo-crm-fw/templates/meta-boxes/select-form.php:29
+msgid "Select Form"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-cf7-crm-form.php:32
+#: woo-crm-fw/templates/meta-boxes/select-form.php:30
+msgid "Contact Form 7"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-event.php:22
+msgid "Select Event"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-fields-cf7.php:22
+#: woo-crm-fw/templates/meta-boxes/select-fields.php:22
+msgid "Map Fields"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-form.php:22
+msgid "Select CF7 Form"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-if-crm-feed.php:22
+msgid "CF7 Feed"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-if-crm-feed.php:27
+msgid "Check if CF7 Feed"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object-cf7.php:31
+#, php-format
+msgid "Select %s Object"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object-cf7.php:32
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:23
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:21
+msgid "ZOHO"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object-cf7.php:41
+#: woo-crm-fw/templates/meta-boxes/select-object.php:28
+msgid "--Select Object--"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object-cf7.php:59
+#: woo-crm-fw/templates/meta-boxes/select-object.php:42
+msgid "Refresh Objects"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object-cf7.php:65
+#: woo-crm-fw/templates/meta-boxes/select-object.php:43
+msgid "Refresh Fields"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/select-object.php:22
+msgid "Select Object"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/sync-variable-product.php:22
+msgid "Sync Variable Product"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/sync-variable-product.php:27
+msgid "Enable this option to sync the parent product for variations."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:23
+msgid "Tax Setup"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:28
+msgid "Make Products Taxable"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:32
+msgid "Select Tax Rates"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:35
+msgid "Woo tax rates"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:36
+msgid "Zoho Tax Rates"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:60
+msgid ""
+"Please map woocommerce tax rates to zoho tax rates which will applied on "
+"product while purchase."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/tax-rates.php:65
+msgid ""
+"You can create new tax rates in your zoho crm and select them here. If you "
+"are not able to see the added tax rate please click on refresh fields button "
+"above."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:22
+msgid "Guest / Registered Users"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:27
+msgid "Use for guest users only"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:31
+msgid ""
+"Check if this feed should be used, only to sync guest orders contact data."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:37
+msgid "Select feed for registered user syncing"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:39
+msgid "--Select Feed--"
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:49
+msgid ""
+"Select other contact feed which should be used to sync, registered users "
+"data."
+msgstr ""
+
+#: woo-crm-fw/templates/meta-boxes/user-type.php:51
+msgid ""
+"If you do not see any option to select, please create a contact feed, "
+"mapping user meta fields and selecting WP user create and update option as "
+"trigger event."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:30
+msgid "Select CF7 form"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:62
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:366
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:38
+msgid "Active"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:62
+msgid "Sandbox"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:79
+msgid "-"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/feeds-tab.php:98
+msgid "Add Feeds"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:17
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:394
+msgid "Abandoned carts list"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:18
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:395
+msgid "Abandoned cart settings"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:29
+#: woo-crm-fw/templates/tabs-contents/wciz-settings.php:68
+msgid "Save"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:75
+msgid "User Email"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:76
+msgid "User Type"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:78
+msgid "Last Updated"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:79
+msgid "Cart Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:80
+msgid "Sync Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:99
+msgid "Guest"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:100
+msgid "Customer"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:309
+msgid "Currently No Abandoned Cart Available"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:336
+msgid "Currently No Items in Cart"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:364
+msgid "Abandoned"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:385
+msgid "view cart"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-abandoned-carts.php:423
+msgid "Empty guest carts"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:30
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:36
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:97
+msgid "Clear Log"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:35
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:41
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:102
+msgid "Download"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:48
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:64
+msgid "Expand"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:50
+msgid "Feed ID"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:54
+#, php-format
+msgid "%s Object"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:60
+#, php-format
+msgid "%s ID"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:63
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:47
+msgid "Event"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:64
+msgid "Timestamp"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:65
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:71
+msgid "Request"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:66
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:72
+msgid "Response"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:73
+msgid "Please enable the logs from "
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-cf7-logs-tab.php:73
+msgid "Settings tab"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:17
+msgid "ZOHO Connection Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-connection-status.php:65
+msgid "Authenticate user in Zoho"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-sync-summary.php:20
+msgid "Contacts Synced"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-sync-summary.php:39
+msgid "Products Synced"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-sync-summary.php:58
+msgid "Deals"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-sync-summary.php:60
+msgid "Synced"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-dashboard-sync-summary.php:80
+msgid "Orders Synced"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:90
+msgid "Choose WC Object Type"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:102
+msgid "Select Feed"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:118
+msgid "From Date"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:131
+msgid "To Date"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-data-sync.php:150
+msgid "Synchronize"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-feeds.php:43
+msgid "Object"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:24
+msgid "Sync Log Data"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:31
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:92
+msgid "Reload"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:52
+msgid "Filter by: "
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:55
+msgid "All"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:56
+msgid "Errors"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:66
+msgid "Woo Object"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:67
+msgid "Woo Object Id"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:68
+msgid "Zoho Object"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:69
+msgid "Zoho Object Id"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:70
+msgid "Time"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:79
+msgid "Please enable the log"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:85
+msgid "Zoho Data Log"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-logs.php:116
+msgid "Please enable the data log"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-settings.php:29
+msgid "Map Zoho Order Status to WooCommerce Order Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-settings.php:34
+msgid "Zoho Order Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-settings.php:37
+msgid "Woo Order Status"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:21
+msgid "Thank You for Becoming Our Valued Customer"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:24
+msgid ""
+"Your purchase allows us to extend our support to you. We aim to provide you "
+"with uninterrupted services tirelessly!"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:31
+msgid "Watch Our Video"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:32
+msgid "For a better audio-visual understanding of the plugin."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:38
+msgid "Read documentation"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:39
+msgid "To get an in-depth understanding of the plugin settings."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:45
+msgid "Refer to the FAQs"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:46
+msgid ""
+"To learn what your peers are curious about and resolve your queries "
+"instantly."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:52
+msgid "Contact us for a paid setup"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:53
+msgid "And avail best-in-class WooCommerce Services."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:59
+msgid "Submit a Ticket"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:60
+msgid "To get your queries resolved one-on-one with our team."
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:66
+msgid "Get in touch via WhatsApp"
+msgstr ""
+
+#: woo-crm-fw/templates/tabs-contents/wciz-support.php:67
+msgid "For a quick chat with our support team."
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:591
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:596
+msgid "One Time Payment"
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:593
+msgid "Subscription"
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2352
+msgid "Feed #"
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2855
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2896
+msgid "Select Field"
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2865
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2906
+msgid "Select Condition"
+msgstr ""
+
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2870
+#: woo-crm-fw/woo/class-woo-crm-integration-connect-framework.php:2911
+msgid "Enter value"
+msgstr ""

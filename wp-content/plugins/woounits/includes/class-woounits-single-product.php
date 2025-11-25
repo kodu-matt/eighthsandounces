@@ -55,10 +55,11 @@ class Woounits_Single_Product {
 	
 			// Convert KG to grams before updating stock
 			$converted_amount = $amount * $conversion_rate;
+			 $math_operator = '-';
 
 			// Modify the stock update query
 			$query = "UPDATE wp_postmeta 
-					  SET meta_value = meta_value {$operation} {$converted_amount} 
+					  SET meta_value = meta_value {$math_operator} {$converted_amount} 
 					  WHERE post_id = {$product_id} AND meta_key = '_stock'";
 		}
 

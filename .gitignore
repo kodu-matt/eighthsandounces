@@ -28,8 +28,8 @@ wp-content/plugins/*
 !wp-content/plugins/woounits/
 !wp-content/plugins/woounits/**
 
-!wp-content/plugins/zoho-crm-integration/
-!wp-content/plugins/zoho-crm-integration/**
+!wp-content/plugins/woo-crm-integration-for-zoho/
+!wp-content/plugins/woo-crm-integration-for-zoho/**
 
 # Ignore all other themes
 
