@@ -1686,7 +1686,7 @@ ul.seed-cat li {
 }
 .sale-image-contant {
   display: flex;
-  justify-content: space-between;  7990351273
+  justify-content: space-between;
 }
 
 .sale-image-contant .sale-iamge {
@@ -3221,6 +3221,36 @@ z-index: 9999;
 	font-size: clamp(0.75rem, 0.7rem + 0.25vw, 1rem) !important ; 
 }
 
+/* login and register btn  */
+
+.woocommerce-form-login__submit,  
+.woocommerce-form-register__submit {
+  width: 50%;
+}
+
+/*forgot password page  */
+
+.woocommerce-ResetPassword.lost_reset_password {
+    border: 1px solid #cfc8d8;
+    padding: 20px;
+    margin: 2em 0;
+    text-align: left;
+    border-radius: 5px;
+}
+
+.my-account-page .woocommerce {
+  justify-content: center !important;
+}
+
+@media (min-width: 600px) {
+  .woocommerce-form-login__submit,  
+  .woocommerce-form-register__submit {
+    width: 30%;
+  }
+    .my-account-page .woocommerce .woocommerce-ResetPassword {
+    width: 50%;
+  }
+}
 /*-------------------------------- Responsive ---------------------------------------*/
 
 @media only screen and (max-width: 1620px) {
@@ -4129,12 +4159,6 @@ z-index: 9999;
         gap: 10px !important;
     }
 	
-	header.wp-block-template-part {
-		position: sticky;
-		top: 0;
-		z-index: 9999; /* keeps it above other elements */
-		width: 100%;
-	}
 
 	/* Optional: smooth transition for visual consistency */
 	header.wp-block-template-part,
