@@ -222,12 +222,20 @@ function wc_category_tabs_shortcode($atts) {
                                 'posts_per_page' => 10, 
                                 'orderby' => 'date',
                                 'order' => 'DESC',
-                                'post__not_in'   => array(36455)
+                                'post__not_in'   => array(36455),
+
                             ));
                             if($latest_query->have_posts()) : while($latest_query->have_posts()) : $latest_query->the_post(); 
                                 global $product;
                             ?>
                        <div class="product-item swiper-slide">
+                            <?php if ($product->is_on_sale()) : ?>
+                                <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                            <?php endif; 
+                            if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
+                                <span class="out-of-stock-bandage">OUT OF STOCK</span> 
+                            <?php endif; ?>
+                            
 						   <a href="<?php echo get_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>">
 							   <img 
 									src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>" 
@@ -241,7 +249,8 @@ function wc_category_tabs_shortcode($atts) {
                                     $average = $product->get_average_rating();
                                     $review_count = $product->get_review_count();
                                     $regular_price = $product->get_regular_price();
-                                    
+                                    $sale_price = $product->get_sale_price();
+
                                     // For variable products, get the first variation's regular price
                                     if ($product->is_type('variable')) {
                                         $available_variations = $product->get_available_variations();
@@ -263,7 +272,16 @@ function wc_category_tabs_shortcode($atts) {
                                     <?php endif; ?>
                                 </ul>
                             </div>
-                            <div class="price"><?php echo wc_price($regular_price); ?></div> <!-- Display only the regular price -->
+                            <div class="price">
+                                <?php if ($product->is_on_sale()) : ?>
+                                    <div class="sale-price-group">
+                                        <span class="regular-price"><del><?php echo wc_price($regular_price); ?></del></span>
+                                        <span class="sale-price"><?php echo wc_price($sale_price); ?></span>
+                                    </div>
+                                <?php else : ?>
+                                    <span class="regular-price"><?php echo wc_price($regular_price); ?></span>
+                                <?php endif; ?>
+                            </div>
                         </div>
 
                         <?php endwhile; wp_reset_postdata(); endif; ?>
@@ -303,6 +321,12 @@ function wc_category_tabs_shortcode($atts) {
                                     global $product;
                                 ?>
                           <div class="product-item swiper-slide">
+                                <?php if ($product->is_on_sale()) : ?>
+                                    <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                                <?php endif; 
+                                if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
+                                    <span class="out-of-stock-bandage">OUT OF STOCK</span> 
+                                <?php endif; ?>
 							  <a href="<?php echo get_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>">
 								  <img 
 									   src="<?php echo get_the_post_thumbnail_url() ? get_the_post_thumbnail_url() : get_stylesheet_directory_uri() . '/img/unnamed.jpg'; ?>" 
@@ -316,6 +340,7 @@ function wc_category_tabs_shortcode($atts) {
                                         $average = $product->get_average_rating();
                                         $review_count = $product->get_review_count();
                                         $regular_price = $product->get_regular_price();
+                                         $sale_price = $product->get_sale_price();
                                         
                                         // For variable products, get the first variation's regular price
                                         if ($product->is_type('variable')) {
@@ -338,7 +363,16 @@ function wc_category_tabs_shortcode($atts) {
                                         <?php endif; ?>
                                     </ul>
                                 </div>
-                                <div class="price"><?php echo wc_price($regular_price); ?></div> <!-- Display only the regular price -->
+                                <div class="price">
+                                    <?php if ($product->is_on_sale()) : ?>
+                                        <div class="sale-price-group">
+                                            <span class="regular-price"><del><?php echo wc_price($regular_price); ?></del></span>
+                                            <span class="sale-price"><?php echo wc_price($sale_price); ?></span>
+                                        </div>
+                                    <?php else : ?>
+                                        <span class="regular-price"><?php echo wc_price($regular_price); ?></span>
+                                    <?php endif; ?>               
+                                </div> 
                             </div>
 
                             <?php endwhile; wp_reset_postdata(); endif; ?>
@@ -3231,7 +3265,7 @@ function display_product_slider($category) {
                 'value'   => 'instock'
             )
         )
-    );
+    );  
 
     $query = new WP_Query($args);
 
@@ -3239,14 +3273,36 @@ function display_product_slider($category) {
         <div class="swiper-container-<?php echo esc_attr($category); ?> cat_slider">
             <div class="swiper-wrapper">
                 <?php while ($query->have_posts()) : $query->the_post(); 
-                    global $product; ?>
+                    global $product; 
+                    $regular_price = $product->get_regular_price();
+                    $sale_price = $product->get_sale_price();
+
+                    ?>
                     <div class="swiper-slide">
                         <div class="product-card">
+                            <?php if ($product->is_on_sale()) : ?>
+                                <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                            <?php endif; 
+
+                            if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
+                                <span class="out-of-stock-bandage">OUT OF STOCK</span> 
+                            <?php endif; ?>
+                            
                             <a href="<?php the_permalink(); ?>" aria-label="<?php echo get_the_title(); ?>">
                                 <?php echo get_the_post_thumbnail(get_the_ID(), 'medium'); ?>
-                                <h3><?php the_title(); ?></h3>
+                                <h3 class="product-title"><?php the_title(); ?></h3>
                             </a>
-                            <p><?php echo $product->get_price_html(); ?></p>
+                            <p><?php //echo $product->get_price_html(); ?></p>
+                            <div class="price">
+                                <?php if ($product->is_on_sale()) : ?>
+                                    <div class="sale-price-group">
+                                        <span class="regular-price"><del><?php echo wc_price($regular_price); ?></del></span>
+                                        <span class="sale-price"><?php echo wc_price($sale_price); ?></span>
+                                    </div>
+                                <?php else : ?>
+                                    <span class="regular-price"><?php echo wc_price($regular_price); ?></span>
+                                <?php endif; ?>
+                            </div>
                             <a href="<?php the_permalink(); ?>" class="view-product" aria-label="<?php echo __("View Product", "twentytwentyfour-child"); ?>">View Product</a>
                         </div>
                     </div>
@@ -4110,5 +4166,37 @@ add_action('woocommerce_before_calculate_totals', function( $cart ) {
 });
 
 
+// sales bandage in single product page
 
+add_filter('woocommerce_sale_flash', 'custom_sale_badge_image', 10, 3);
+function custom_sale_badge_image($html, $post, $product) {
+    // Replace with your uploaded image URL
+    $custom_img_url = 'http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png';
 
+    $html = '<span class="custom-sale-badge">
+                <img src="'. $custom_img_url .'" alt="Sale" />
+             </span>';
+    return $html;
+}
+
+// Replace Email field label
+
+add_filter( 'gettext', 'replace_username_or_email_label', 20, 3 );
+function replace_username_or_email_label( $translated_text, $text, $domain ) {
+
+    // Run only on WooCommerce My Account page
+    if ( function_exists( 'is_account_page' ) && is_account_page() ) {
+
+        // Login form label
+        if ( $text === 'Username or email address' ) {
+            return 'Username or Email';
+        }
+
+        // Registration form label (corrected string)
+        if ( $text === 'Email address' ) {
+            return 'Email';
+        }
+    }
+
+    return $translated_text;
+}

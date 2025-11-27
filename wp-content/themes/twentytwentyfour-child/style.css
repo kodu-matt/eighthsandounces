@@ -321,16 +321,17 @@ p.not-found-p {
   font-family: "Myriad Pro";
   margin-top: 18px;
   font-weight: 600;
+  height: auto !important;
 }
 
-.product-item .price del {
-  font-size: 11px;
+.product-item .price del, .product-card .price del {
+  font-size: 22px;
   color: #000;
   font-family: "Myriad Pro";
-  font-weight: 400;
+  font-weight: 500;
 }
 
-.product-item .price {
+.product-item .price  {
   font-size: 24px;
   color: #000;
   display: flex;
@@ -342,10 +343,71 @@ p.not-found-p {
   margin-top: 16px;
 }
 
+.product-item .price .sale-price-group , .product-card .price .sale-price-group {
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.sale-bandage-img {
+  position:absolute !important; 
+  top:10px; 
+  left:10px; 
+  width:60px !important; 
+  height:60px !important; 
+  z-index:10;
+}
+
+.out-of-stock-bandage{
+  position: absolute;
+  top: 8px;
+  right: 0;
+  background: #e63946;
+  color: #fff;
+  padding: 8px 10px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 10;
+  box-shadow: -1px 1px 4px rgba(0, 0, 0, 0.25);
+}
+
+.price .sale-price-group .sale-price {
+  color:#4c995b;
+}
+
 .advertising-banner-home img {
   width: 100%;
 }
 
+/* sale bandage single page  */
+
+.custom-sale-badge img {
+  width: 60px;
+  height: auto;
+}
+
+.custom-sale-badge {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  z-index: 20;
+}
+
+.product-card .price {
+  margin-bottom: 20px !important;
+  font-size: 20px !important;
+  font-weight: 600 !important;
+}
+
+.product-title {
+  font-size: 20px !important;
+  margin: 10px 0px 0px !important;
+  font-family: "Myriad Pro";
+  font-weight: 600;
+  height: auto !important;
+}
 .advertising-banner-home .swiper-pagination {
   text-align: right !important;
   top: 0px !important;
@@ -2202,8 +2264,14 @@ div#wpsl-stores {
 .filter-title.active .toggle-icon {
   transform: rotate(180deg);
 }
-.cat_slider .swiper-button-next:after, .cat_slider .swiper-button-prev:after{
+.cat_slider .swiper-button-next:after{
 	color : #005206!important;
+  margin-left: 15px !important;
+}
+
+.cat_slider .swiper-button-prev:after {
+  color : #005206!important;
+  margin-right: 15px !important;
 }
 .product-filters h4 {
   margin: 10px 0;
@@ -3242,6 +3310,9 @@ z-index: 9999;
   justify-content: center !important;
 }
 
+
+/*-------------------------------- Responsive ---------------------------------------*/
+
 @media (min-width: 600px) {
   .woocommerce-form-login__submit,  
   .woocommerce-form-register__submit {
@@ -3251,7 +3322,6 @@ z-index: 9999;
     width: 50%;
   }
 }
-/*-------------------------------- Responsive ---------------------------------------*/
 
 @media only screen and (max-width: 1620px) {
   .header-searchbar .wp-block-search__input {
@@ -3261,7 +3331,7 @@ z-index: 9999;
 
 @media only screen and (max-width: 1380px) {
   .product-item h2 {
-    font-size: 14px;
+    font-size: 18px;
   }
 }
 
@@ -3811,10 +3881,6 @@ z-index: 9999;
     padding: 20px 0;
   }
 
-  .product-item h2 {
-    font-size: 12px;
-  }
-
   .sponsored-products-grid .swiper-pagination {
     text-align: center !important;
     bottom: 0;
@@ -3862,7 +3928,7 @@ z-index: 9999;
   }
 
   .product-item .price {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .faqs {
