@@ -2981,7 +2981,7 @@ function filter_products() {
                             <?php echo $product_categories; ?>
                         </div>
                         <div class="wp-block-group is-nowrap f-block">
-                            <p class="has-contrast-3-color">From</p>
+                            <!-- <p class="has-contrast-3-color">From</p> -->
                             <div class="wp-block-woocommerce-product-price">
                                 <span class="woocommerce-Price-amount amount">
                                     <bdi><?php echo $product_price; ?></bdi>
@@ -3281,7 +3281,7 @@ function display_product_slider($category) {
                     <div class="swiper-slide">
                         <div class="product-card">
                             <?php if ($product->is_on_sale()) : ?>
-                                <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
                             <?php endif; 
 
                             if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
