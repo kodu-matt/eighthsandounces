@@ -764,6 +764,7 @@ p.not-found-p {
   width: 100% !important;
   box-sizing: border-box;
   background-color: #fff;
+  margin-bottom: 0 !important;
 }
 
 .todays-recommendations li .add_to_cart_button {
@@ -929,6 +930,10 @@ button#apply-filters {
   font-family: "Myriad Pro";
 }
 
+.we-can-accomidate-orders {
+  font-size: clamp(1rem, 0.925rem + 0.375vw, 1.375rem);
+}
+
 .todays-recommendations li.product::before,
 .todays-recommendations::before {
   display: none !important;
@@ -945,7 +950,7 @@ button#apply-filters {
 }
 
 .todays-recommendations li.product h2 {
-  font-size: 18px;
+  font-size: 24px;
   margin: 0;
   padding-top: 22px;
   font-family: "Myriad Pro";
@@ -1007,8 +1012,13 @@ button#apply-filters {
 .todays-recommendations .price {
   color: #000000;
   font-family: "Myriad Pro";
-  font-size: 34px;
-  font-weight: 700;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.todays-recommendations .product-wrap .cat-match-height {
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .custom-products {
@@ -1138,10 +1148,34 @@ button#apply-filters {
   font-family: "Myriad Pro";
 }
 
+.post-list li{
+  display: flex;
+}
+
+.green-btn {
+  width: 100% !important;
+}
+
+.green-btn a{
+  text-align: center;
+  width: -webkit-fill-available;
+}
+
 .green-btn a:hover {
   background: #005206 !important;
   transition: all 0.3s ease;
   color: #fff !important;
+}
+
+.green-dec-height {
+  font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem) !important;
+}
+.green-dec-height .wp-block-post-excerpt__excerpt {
+  font-size: clamp(1rem, 0.975rem + 0.125vw, 1.125rem) !important;
+}
+
+.blog-title-height {
+  font-size: clamp(1.25rem, 1.2rem + 0.25vw, 1.5rem) !important;
 }
 
 .orange-btn a:hover {
@@ -2022,7 +2056,6 @@ span.wc-block-mini-cart__badge {
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  color: #ff0707;
   font-family: "Myriad Pro";
 }
 
@@ -2669,6 +2702,14 @@ body .wpc-filters-open-button-container a.wpc-open-close-filters-button {
 
 .commercial_wrap .w-100 a {
   width: auto !important;
+}
+
+.commercial_wrap .commercial-order {
+  padding: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem) !important;
+}
+
+.commercial_wrap .todays-recommendations-for-you {
+  padding: clamp(1.25rem, 1.125rem + 0.625vw, 1.875rem) !important;
 }
 
 .woocommerce .star-rating::before {
