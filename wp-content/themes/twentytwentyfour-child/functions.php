@@ -230,7 +230,7 @@ function wc_category_tabs_shortcode($atts) {
                             ?>
                        <div class="product-item swiper-slide">
                             <?php if ($product->is_on_sale()) : ?>
-                                <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
                             <?php endif; 
                             if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
                                 <span class="out-of-stock-bandage">OUT OF STOCK</span> 
@@ -322,7 +322,7 @@ function wc_category_tabs_shortcode($atts) {
                                 ?>
                           <div class="product-item swiper-slide">
                                 <?php if ($product->is_on_sale()) : ?>
-                                    <img src="http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
+                                    <img src="<?php echo get_stylesheet_directory_uri() ?>/img/sales-bandage-img.png" class="sale-bandage-img" alt="Sale">
                                 <?php endif; 
                                 if ( ! $product->managing_stock() && ! $product->is_in_stock() ) : ?>
                                     <span class="out-of-stock-bandage">OUT OF STOCK</span> 
@@ -4171,7 +4171,7 @@ add_action('woocommerce_before_calculate_totals', function( $cart ) {
 add_filter('woocommerce_sale_flash', 'custom_sale_badge_image', 10, 3);
 function custom_sale_badge_image($html, $post, $product) {
     // Replace with your uploaded image URL
-    $custom_img_url = 'http://localhost:8000/eighthsandounces/wp-content/uploads/2025/11/sales-bandage-img.png';
+    $custom_img_url = get_stylesheet_directory_uri().'/img/sales-bandage-img.png';
 
     $html = '<span class="custom-sale-badge">
                 <img src="'. $custom_img_url .'" alt="Sale" />
